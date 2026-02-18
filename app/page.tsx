@@ -281,25 +281,32 @@ function Market() {
               label: 'Global Neobanking Market',
               detail: '54.8% CAGR from 2023 to 2030. From 350M users today to 800M+ by 2030.',
               source: 'Grand View Research / Fortune Business Insights',
+              sourceUrl: 'https://www.grandviewresearch.com/industry-analysis/neobanking-market',
             },
             {
               value: '10x Growth',
               label: 'Stablecoin Market',
               detail: 'Citibank projects stablecoin market reaches $3.7T by 2030. Circle already sharing USDC yield.',
               source: 'Citibank Stablecoins 2030 Report',
+              sourceUrl: 'https://www.citigroup.com/global/insights/stablecoins-2030',
             },
             {
               value: '30M Fans',
               label: 'Immediate Distribution',
               detail: "Our first two anchor clients alone provide access to 30M fans. Even 0.1% conversion = 30,000 MAU.",
               source: 'Conservative internal modeling',
+              sourceUrl: null,
             },
           ].map((item) => (
             <div key={item.label} className="bg-white/[0.04] border border-teal-500/20 rounded-2xl p-6">
               <div className="text-3xl font-bold text-teal-400 mb-2 leading-tight">{item.value}</div>
               <div className="text-white font-semibold mb-2">{item.label}</div>
               <div className="text-white/45 text-sm leading-relaxed mb-4">{item.detail}</div>
-              <div className="text-white/25 text-xs">Source: {item.source}</div>
+              {item.sourceUrl ? (
+                <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-white/25 hover:text-teal-400 text-xs transition-colors">Source: {item.source}</a>
+              ) : (
+                <div className="text-white/25 text-xs">Source: {item.source}</div>
+              )}
             </div>
           ))}
         </div>
@@ -456,13 +463,6 @@ function Team() {
       bio: 'Rollup Stack Blockchain Engineer at Spire Labs. Former Core Team Engineer at L2BEAT. Specialist in blockchain systems and global AI agent implementations.',
       linkedin: 'https://www.linkedin.com/in/michal-sobieraj-jakubiec/',
       twitter: 'https://x.com/miszke_eth',
-    },
-    {
-      name: 'Franciszek Krawczyk',
-      role: 'Founding Engineer',
-      bio: 'Founding Engineer with deep expertise in stablecoin banking systems and financial infrastructure at scale.',
-      linkedin: null,
-      twitter: null,
     },
   ]
 
