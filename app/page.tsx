@@ -4,7 +4,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
-            <img src="/icon.png" alt="Castar" className="w-8 h-8 rounded-lg" />
+            <img src="/castar.svg" alt="Castar" className="w-8 h-8 rounded-lg" />
             <span className="text-white font-bold text-lg tracking-tight">Castar</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -567,7 +567,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <img src="/icon.png" alt="Castar" className="w-6 h-6 rounded" />
+            <img src="/castar.svg" alt="Castar" className="w-6 h-6 rounded" />
             <span className="text-white font-bold text-sm">Castar</span>
             <span className="text-white/25 text-sm ml-1">Microbank-as-a-Service</span>
           </div>
