@@ -33,7 +33,7 @@ function Hero() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-teal-500/6 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-teal-800/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 sm:py-28">
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 rounded-full px-4 py-1.5 mb-8">
             <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
