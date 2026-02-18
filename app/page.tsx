@@ -15,10 +15,12 @@ function Nav() {
             <a href="#team" className="text-white/50 hover:text-white text-sm transition-colors">Team</a>
           </div>
           <a
-            href="mailto:hello@castar.io"
+            href="https://calendar.app.google/BE7t6886uFgY8uSN8"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-teal-500 hover:bg-teal-400 text-black font-semibold px-4 py-2 rounded-lg text-sm transition-colors"
           >
-            Get in touch
+            Book a Demo
           </a>
         </div>
       </div>
@@ -55,10 +57,12 @@ function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="mailto:hello@castar.io"
+              href="https://calendar.app.google/BE7t6886uFgY8uSN8"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-teal-500 hover:bg-teal-400 text-black font-semibold px-8 py-4 rounded-xl text-base transition-all hover:scale-[1.02]"
             >
-              Get Early Access
+              Book a Demo
             </a>
             <a
               href="https://drive.google.com/file/d/1DVTnA4rGOMR0jLWUVd1eT9KpV4FD88l7/view"
@@ -73,21 +77,6 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-20 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { value: '$2T+', label: 'Market by 2030' },
-              { value: '800M', label: 'Users by 2030' },
-              { value: '54.8%', label: 'Market CAGR' },
-              { value: '$216M', label: 'Volume Processed' },
-              { value: '30K', label: 'Target MAU' },
-              { value: '$500K', label: 'Target ARR' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold text-teal-400">{stat.value}</div>
-                <div className="text-xs text-white/35 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -230,7 +219,6 @@ function Customers() {
                 'Earn a percentage on all community deposits',
                 'Earn a percentage on transaction volume',
                 'Native upselling infrastructure built-in',
-                'Estimated $26.92 profit per active user',
               ].map((feature) => (
                 <div key={feature} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -510,21 +498,6 @@ function Team() {
           ))}
         </div>
 
-        <div className="mt-8 bg-white/[0.03] border border-white/8 rounded-2xl p-6">
-          <div className="text-white/30 text-xs uppercase tracking-widest mb-4">Advisors in pipeline</div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
-            {[
-              'Luca Prosperi (M0 Founder)',
-              'Paul Frambot (Morpho Founder)',
-              'Marek Kirejczyk (vLayer Labs)',
-              'Zbigniew Jagiełło (Former NBP President, BLIK Founder)',
-              'Filip Wielanier (Cookie3 Founder)',
-              'Jacek Czarnecki (Sky Frontier Foundation)',
-            ].map((advisor) => (
-              <span key={advisor} className="text-white/40 text-sm">{advisor}</span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -554,10 +527,12 @@ function Raising() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:hello@castar.io"
+                href="https://calendar.app.google/BE7t6886uFgY8uSN8"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-teal-500 hover:bg-teal-400 text-black font-semibold px-8 py-4 rounded-xl text-base transition-all hover:scale-[1.02]"
               >
-                Get in touch
+                Book a Demo
               </a>
               <a
                 href="https://drive.google.com/file/d/1DVTnA4rGOMR0jLWUVd1eT9KpV4FD88l7/view"
@@ -601,7 +576,7 @@ function Footer() {
             <span className="text-white/25 text-sm ml-1">Microbank-as-a-Service</span>
           </div>
           <div className="flex items-center gap-6">
-            <a href="mailto:hello@castar.io" className="text-white/30 hover:text-white/60 text-sm transition-colors">hello@castar.io</a>
+            <a href="https://calendar.app.google/BE7t6886uFgY8uSN8" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 text-sm transition-colors">Book a Demo</a>
             <span className="text-white/20 text-sm">Delaware, USA &middot; Warsaw, Poland</span>
           </div>
           <div className="text-white/20 text-xs">&copy; 2026 Castar Labs. All rights reserved.</div>
