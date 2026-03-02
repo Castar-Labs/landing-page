@@ -275,7 +275,7 @@ function TechMoat() {
               <div className="text-slate-400 text-xs uppercase tracking-widest mb-3">Powered By</div>
               <div className="grid grid-cols-3 gap-3">
                 {['Bridge API', 'Plaid', 'M0 Protocol', 'ERC-4337', 'Stripe Issuing', 'Blockchain'].map((tech) => (
-                  <div key={tech} className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-2 text-slate-600 text-xs text-center hover:border-teal-300 transition-colors">
+                  <div key={tech} className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-2 text-slate-600 text-xs text-center hover:border-teal-300 transition-colors flex items-center justify-center">
                     {tech}
                   </div>
                 ))}
