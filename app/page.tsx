@@ -146,16 +146,16 @@ function MarketOpportunity() {
         </div>
 
         <div className="mt-8 bg-teal-50 border border-teal-100 rounded-2xl p-6">
-          <div className="text-slate-400 text-xs uppercase tracking-widest mb-4">Entertainment Finance is beginning now</div>
+          <div className="text-slate-400 text-xs uppercase tracking-widest mb-4">Entertainment Finance begins</div>
           <div className="grid sm:grid-cols-3 gap-4">
             {[
-              'MrBeast acquires Step neobank — Entertainment Finance begins',
-              'Pengu (Pudgy Penguins) drives 100k card signups for Kast',
-              "Elon Musk's X Money entering closed beta — targeting mass finance",
+              { text: 'MrBeast acquires Step neobank', url: 'https://x.com/MrBeast/status/2020910218360782929' },
+              { text: 'Youtube launches stablecoin payouts to creators', url: 'https://fortune.com/2025/12/11/youtube-paypal-google-stablecoin-payouts-pyusd/' },
+              { text: 'Tether Invests in Whop', url: 'https://tether.io/news/tether-invests-in-whop-one-of-the-fastest-growing-internet-markets-to-power-stablecoin-payments-for-the-next-generation-of-the-internet-economy/' },
             ].map((event) => (
-              <div key={event} className="flex gap-3">
+              <div key={event.text} className="flex gap-3">
                 <div className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-1.5 flex-shrink-0" />
-                <span className="text-slate-600 text-sm leading-relaxed">{event}</span>
+                <a href={event.url} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-teal-600 text-sm leading-relaxed transition-colors">{event.text}</a>
               </div>
             ))}
           </div>
