@@ -403,64 +403,6 @@ function Investors() {
   )
 }
 
-function Team() {
-  const team = [
-    {
-      name: 'Hubert Kotliński',
-      role: 'CEO',
-      bio: 'Head of DevRel at Spire Labs. Former Head of GTM at L2BEAT and Stablewatch. Market Entry Specialist at Tools for Humanity. Advisor to Self Labs, Swell, Tenderly, Immunefi.',
-      linkedin: 'https://www.linkedin.com/in/hubert-kotli%C5%84ski-574351200/',
-      twitter: 'https://x.com/hubkotl',
-    },
-    {
-      name: 'Antoni Pawlak',
-      role: 'CPO',
-      bio: 'Founding Engineer at L2BEAT. Global Data Analyst with a track record of high-impact analytics and infrastructure projects across multiple domains.',
-      linkedin: 'https://www.linkedin.com/in/antonipawlak/',
-      twitter: 'https://x.com/antoonip',
-    },
-    {
-      name: 'Michał Sobieraj-Jakubiec',
-      role: 'CTO',
-      bio: 'Rollup Stack Blockchain Engineer at Spire Labs. Former Core Team Engineer at L2BEAT. Specialist in blockchain systems and global AI agent implementations.',
-      linkedin: 'https://www.linkedin.com/in/michal-sobieraj-jakubiec/',
-      twitter: 'https://x.com/miszke_eth',
-    },
-  ]
-
-  return (
-    <section id="team" className="py-28 border-t border-slate-100 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="text-teal-600 text-xs font-semibold uppercase tracking-widest mb-4">Team</div>
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Built by neofinance veterans</h2>
-          <p className="text-slate-500">We have already built neofinance products together at L2BEAT, Spire Labs, and MiniPay.</p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-5">
-          {team.map((member) => (
-            <div key={member.name} className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-teal-300 transition-colors shadow-sm">
-              <div className="w-11 h-11 bg-teal-100 rounded-xl mb-4 flex items-center justify-center">
-                <span className="text-teal-600 font-bold text-lg">{member.name[0]}</span>
-              </div>
-              <div className="text-slate-900 font-semibold text-sm mb-0.5">{member.name}</div>
-              <div className="text-teal-600 text-xs font-medium mb-3">{member.role}</div>
-              <p className="text-slate-400 text-xs leading-relaxed mb-4">{member.bio}</p>
-              <div className="flex gap-3">
-                {member.linkedin && (
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 transition-colors text-xs">LinkedIn</a>
-                )}
-                {member.twitter && (
-                  <a href={member.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 transition-colors text-xs">Twitter</a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 function Footer() {
   return (
@@ -498,7 +440,6 @@ export default function Home() {
       <ValueProposition />
       <TechMoat />
       <Investors />
-      <Team />
       <Footer />
     </main>
   )
