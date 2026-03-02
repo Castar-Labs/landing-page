@@ -470,7 +470,7 @@ function Footer() {
           <div className="flex items-center gap-2.5">
             <img src="/logo.svg" alt="Castar" className="h-6 w-auto" />
             <span className="text-slate-900 font-bold text-sm">Castar</span>
-            <span className="text-slate-400 text-sm ml-1">— Architecting Entertainment Finance</span>
+            <span className="text-slate-400 text-sm ml-1">Architecting Entertainment Finance</span>
           </div>
           <div className="flex items-center gap-6">
             <a href="#" className="text-slate-400 hover:text-slate-700 text-sm transition-colors">Home</a>

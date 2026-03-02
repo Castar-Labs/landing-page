@@ -5,11 +5,11 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Castar — Architecting Entertainment Finance',
+  title: 'Castar Architecting Entertainment Finance',
   description:
     'The ultimate white-label microbanking platform for the creator economy. Launch a fully compliant, creator-branded stablecoin bank in days—with zero technical or regulatory friction.',
   openGraph: {
-    title: 'Castar — Architecting Entertainment Finance',
+    title: 'Castar Architecting Entertainment Finance',
     description:
       'We turn massive audiences into thriving micro-economies. Launch a creator-branded stablecoin bank in days.',
     type: 'website',
