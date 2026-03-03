@@ -244,7 +244,7 @@ function TechMoat() {
     {
       num: '02',
       title: 'Native Treasury Yield',
-      desc: 'Under the hood, deposits are tokenized via our custom M0 extension, generating US Treasury yield safely and natively.',
+      desc: 'Under the hood, deposits are tokenized via our whitelabel stablecoin, generating US Treasury yield safely and natively.',
     },
     {
       num: '03',
