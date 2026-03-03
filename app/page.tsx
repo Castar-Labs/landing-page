@@ -254,7 +254,7 @@ function TechMoat() {
     {
       num: '04',
       title: 'Just-In-Time (JIT) Spending',
-      desc: 'Powered by Stripe Issuing. When a fan swipes their card, we instantly liquidate their tokenized balance to fund the transaction in <2 seconds. No manual top-ups.',
+      desc: 'When a fan swipes their card, we instantly liquidate their tokenized balance to fund the transaction in <2 seconds. No manual top-ups.',
     },
   ]
 
