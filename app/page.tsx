@@ -239,7 +239,7 @@ function TechMoat() {
     {
       num: '01',
       title: 'Zero-Fee ACH Onboarding',
-      desc: 'Powered by Bridge API & Plaid. Fans deposit fiat for free; we subsidize the onramp. Zero friction from day one.',
+      desc: 'Fans deposit fiat for free; we subsidize the onramp. Zero friction from day one.',
     },
     {
       num: '02',
@@ -249,7 +249,7 @@ function TechMoat() {
     {
       num: '03',
       title: 'Sponsored Smart Wallets',
-      desc: 'Built on ERC-4337 (Account Abstraction). We sponsor all network fees on L2 so the user experience is completely flawless.',
+      desc: 'Built on ERC-7702 (Account Abstraction). We sponsor all network fees on L2 so the user experience is completely flawless.',
     },
     {
       num: '04',
@@ -271,16 +271,6 @@ function TechMoat() {
               We removed all friction from the user journey. No gas fees, no seed phrases,
               just a seamless banking experience that feels like any other modern fintech app.
             </p>
-            <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-              <div className="text-slate-400 text-xs uppercase tracking-widest mb-3">Powered By</div>
-              <div className="grid grid-cols-3 gap-3">
-                {['Bridge API', 'Plaid', 'M0 Protocol', 'ERC-4337', 'Stripe Issuing', 'Blockchain'].map((tech) => (
-                  <div key={tech} className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-2 text-slate-600 text-xs text-center hover:border-teal-300 transition-colors flex items-center justify-center">
-                    {tech}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           <div className="space-y-4">
