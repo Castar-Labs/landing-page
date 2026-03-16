@@ -2,6 +2,30 @@
 
 import { useState } from 'react'
 
+function useLoopsForm(userGroup: 'fan' | 'creator') {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!email) return
+    setStatus('loading')
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, userGroup }),
+      })
+      if (!res.ok) throw new Error('Submission failed')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  return { email, setEmail, status, handleSubmit }
+}
+
 function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
@@ -109,28 +133,6 @@ function Hero() {
   )
 }
 
-function BrandBar() {
-  const brands = ['Sephora', 'Starbucks', 'Nike', 'Spotify', 'Uber', 'Zara', 'Amazon', 'Adidas']
-  return (
-    <section className="py-12 border-y border-slate-100 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-slate-400 text-sm font-medium mb-8 uppercase tracking-widest">
-          Earn cashback and support creators at your favorite brands
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-6">
-          {brands.map((brand) => (
-            <div
-              key={brand}
-              className="bg-white border border-slate-200 rounded-xl px-5 py-2.5 text-slate-500 font-semibold text-sm shadow-sm"
-            >
-              {brand}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 function HowItWorks() {
   const steps = [
@@ -236,7 +238,7 @@ function ForFans() {
               </span>
             </h2>
             <p className="text-slate-500 text-lg leading-relaxed mb-10">
-              One free card. Zero extra spending. Everything you love about being a fan—turned into a game you actually win.
+              One free card. Zero extra spending. Everything you love about being a fan - turned into a game you actually win.
             </p>
             <div className="space-y-5">
               {perks.map((perk) => (
@@ -290,6 +292,43 @@ function ForFans() {
   )
 }
 
+function CreatorForm() {
+  const { email, setEmail, status, handleSubmit } = useLoopsForm('creator')
+
+  if (status === 'success') {
+    return (
+      <div className="mt-8 bg-teal-50 border border-teal-200 rounded-2xl py-5 px-6 text-center">
+        <div className="text-2xl mb-2">🎉</div>
+        <div className="text-teal-800 font-bold text-base mb-1">Application received!</div>
+        <div className="text-teal-600 text-sm">We'll be in touch within 48 hours.</div>
+      </div>
+    )
+  }
+
+  return (
+    <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md" onSubmit={handleSubmit}>
+      <input
+        type="email"
+        required
+        placeholder="your@email.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="flex-1 border border-slate-200 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm outline-none transition-colors bg-white"
+      />
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all hover:scale-[1.02] whitespace-nowrap"
+      >
+        {status === 'loading' ? 'Sending...' : 'Apply as a Creator →'}
+      </button>
+      {status === 'error' && (
+        <p className="text-red-500 text-xs mt-2 w-full">Something went wrong. Please try again.</p>
+      )}
+    </form>
+  )
+}
+
 function ForCreators() {
   const perks = [
     {
@@ -325,10 +364,10 @@ function ForCreators() {
               <div className="text-white font-bold text-lg mb-5">@YourChannel ✦</div>
               <div className="grid grid-cols-2 gap-3 mb-4">
                 {[
-                  { label: 'Total GMV', value: '$124,800' },
-                  { label: 'Passive Income', value: '$3,744' },
-                  { label: 'Active Fans', value: '8,420' },
-                  { label: 'Impact Generated', value: '$622' },
+                  { label: 'Total GMV', value: '$4.2M' },
+                  { label: 'Passive Income', value: '$84,300' },
+                  { label: 'Active Fans', value: '62,400' },
+                  { label: 'Impact Generated', value: '$18,900' },
                 ].map((stat) => (
                   <div key={stat.label} className="bg-slate-800 rounded-xl p-3">
                     <div className="text-teal-400 font-bold text-base">{stat.value}</div>
@@ -338,7 +377,7 @@ function ForCreators() {
               </div>
               <div className="bg-teal-900/50 border border-teal-700/30 rounded-xl p-3 mb-3">
                 <div className="text-teal-400 text-xs font-semibold mb-1">This Month</div>
-                <div className="text-white text-sm">+$412 in passive revenue</div>
+                <div className="text-white text-sm">+$6,240 in passive revenue</div>
               </div>
               <div className="text-slate-600 text-xs text-center">Powered by Castar · Live in 14 days</div>
             </div>
@@ -368,12 +407,7 @@ function ForCreators() {
                 </div>
               ))}
             </div>
-            <a
-              href="#waitlist"
-              className="inline-flex items-center justify-center mt-8 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all hover:scale-[1.02]"
-            >
-              Apply as a Creator →
-            </a>
+            <CreatorForm />
           </div>
         </div>
       </div>
@@ -420,20 +454,19 @@ function ImpactEngine() {
           }} />
           <div className="relative grid md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: '🐾', cause: 'Animal Shelters', amount: '$18,420', change: '+$234 this week' },
-              { icon: '🧠', cause: 'Mental Health', amount: '$12,891', change: '+$178 this week' },
-              { icon: '🌱', cause: 'Climate Action', amount: '$9,340', change: '+$112 this week' },
+              { icon: '🐾', cause: 'Animal Shelters', desc: 'Support local shelters and rescue organizations' },
+              { icon: '🧠', cause: 'Mental Health', desc: 'Fund awareness campaigns and access to care' },
+              { icon: '🌱', cause: 'Climate Action', desc: 'Back reforestation and clean energy projects' },
             ].map((item) => (
               <div key={item.cause}>
                 <div className="text-4xl mb-3">{item.icon}</div>
-                <div className="text-white font-bold text-2xl mb-1">{item.amount}</div>
-                <div className="text-white/80 font-medium mb-1">{item.cause}</div>
-                <div className="text-teal-200 text-xs">{item.change}</div>
+                <div className="text-white font-bold text-lg mb-2">{item.cause}</div>
+                <div className="text-white/60 text-sm leading-relaxed">{item.desc}</div>
               </div>
             ))}
           </div>
           <div className="relative text-center mt-10">
-            <div className="text-white/60 text-sm">Total community impact across all Castar cards</div>
+            <div className="text-white/60 text-sm">Creators choose their cause. Every swipe moves the needle.</div>
           </div>
         </div>
       </div>
@@ -442,8 +475,7 @@ function ImpactEngine() {
 }
 
 function FinalCTA() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const { email, setEmail, status, handleSubmit } = useLoopsForm('fan')
 
   return (
     <section id="waitlist" className="py-28 bg-slate-950">
@@ -462,20 +494,14 @@ function FinalCTA() {
           <span className="text-teal-400 font-semibold">2x XP multiplier</span>.
         </p>
 
-        {submitted ? (
+        {status === 'success' ? (
           <div className="bg-teal-500/10 border border-teal-500/20 rounded-2xl py-8 px-6">
             <div className="text-4xl mb-4">🎉</div>
             <div className="text-white font-bold text-xl mb-2">You're on the list!</div>
             <div className="text-slate-400 text-sm">We'll reach out when your early access is ready.</div>
           </div>
         ) : (
-          <form
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            onSubmit={(e) => {
-              e.preventDefault()
-              if (email) setSubmitted(true)
-            }}
-          >
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={handleSubmit}>
             <input
               type="email"
               required
@@ -486,14 +512,18 @@ function FinalCTA() {
             />
             <button
               type="submit"
-              className="bg-teal-500 hover:bg-teal-400 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition-all hover:scale-[1.02] whitespace-nowrap shadow-lg shadow-teal-500/25"
+              disabled={status === 'loading'}
+              className="bg-teal-500 hover:bg-teal-400 disabled:opacity-60 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition-all hover:scale-[1.02] whitespace-nowrap shadow-lg shadow-teal-500/25"
             >
-              Claim My Spot
+              {status === 'loading' ? 'Saving...' : 'Claim My Spot'}
             </button>
           </form>
         )}
 
-        <p className="text-slate-600 text-xs mt-6">No spam. No credit card. Cancel anytime.</p>
+        {status === 'error' && (
+          <p className="text-red-400 text-xs mt-3">Something went wrong. Please try again.</p>
+        )}
+        <p className="text-slate-600 text-xs mt-6">We promise no SPAM 🤞</p>
       </div>
     </section>
   )
@@ -509,8 +539,6 @@ function Footer() {
             <span className="text-white font-bold text-sm">Castar</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <a href="#" className="text-slate-500 hover:text-slate-300 text-sm transition-colors">Terms of Service</a>
-            <a href="#" className="text-slate-500 hover:text-slate-300 text-sm transition-colors">Privacy Policy</a>
             <a href="#for-creators" className="text-slate-500 hover:text-slate-300 text-sm transition-colors">Creator Application</a>
             <a href="mailto:hello@castar.tech" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">Support</a>
           </div>
@@ -530,7 +558,7 @@ export default function Home() {
     <main className="bg-white min-h-screen">
       <Nav />
       <Hero />
-      <BrandBar />
+
       <HowItWorks />
       <ForFans />
       <ForCreators />
