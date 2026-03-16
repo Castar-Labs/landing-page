@@ -111,7 +111,7 @@ function Hero() {
               <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar={<MusicNote weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="absolute" style={{ transform: 'rotate(4deg) translateY(-8px) translateX(8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
+              <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="relative">
               <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<img src="/logo3.svg" className="w-5 h-5 brightness-0 invert" alt="Castar" />} />
