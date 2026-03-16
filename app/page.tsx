@@ -1,6 +1,32 @@
 'use client'
 
 import { useState } from 'react'
+import {
+  CreditCard,
+  Tag,
+  Trophy,
+  PaintBrush,
+  Money,
+  Gift,
+  Rocket,
+  Lightning,
+  Globe,
+  Coin,
+  PawPrint,
+  Brain,
+  Leaf,
+  Confetti,
+  GameController,
+  MusicNote,
+  ShoppingCart,
+  Sneaker,
+  SealCheck,
+} from '@phosphor-icons/react'
+
+// Shorthand for duotone icon wrapper used across feature lists
+function PhIcon({ icon: Icon, className = '' }: { icon: React.ElementType; className?: string }) {
+  return <Icon weight="duotone" className={className} />
+}
 
 function useLoopsForm(userGroup: 'fan' | 'creator') {
   const [email, setEmail] = useState('')
@@ -52,7 +78,7 @@ function Nav() {
   )
 }
 
-function VirtualCard({ gradient, avatar }: { gradient: string; avatar: string }) {
+function VirtualCard({ gradient, avatar }: { gradient: string; avatar: React.ReactNode }) {
   return (
     <div
       className={`w-72 h-44 rounded-2xl p-6 shadow-2xl flex flex-col justify-between ${gradient}`}
@@ -82,13 +108,13 @@ function Hero() {
           {/* Stacked rotating cards — first on mobile */}
           <div className="relative flex items-center justify-center h-56 sm:h-64 lg:h-80 order-first lg:order-last">
             <div className="absolute" style={{ transform: 'rotate(-8deg) translateY(16px) translateX(-8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar="🎵" />
+              <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar={<MusicNote weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="absolute" style={{ transform: 'rotate(4deg) translateY(-8px) translateX(8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar="🎮" />
+              <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="relative">
-              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar="⭐" />
+              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<Trophy weight="duotone" className="w-5 h-5 text-white" />} />
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
                 Active — 2,450 XP
               </div>
@@ -214,22 +240,22 @@ function ForFans() {
     {
       title: 'Support Without Subscriptions',
       desc: 'Cancel the $5/month paywalls. Support your idol passively just by buying the things you already buy.',
-      icon: '💳',
+      icon: CreditCard,
     },
     {
       title: 'Exclusive Discounts',
       desc: 'Unlock special Card-Linked Offers curated by your creator. Get up to 20% cashback at partner brands.',
-      icon: '🏷️',
+      icon: Tag,
     },
     {
       title: 'Climb the Leaderboard',
       desc: 'Earn XP for every dollar spent. Prove you\'re the #1 fan and unlock exclusive perks, early merch drops, and VIP Discord access.',
-      icon: '🏆',
+      icon: Trophy,
     },
     {
       title: 'Dynamic Theming',
       desc: 'Bored? Switch your active creator anytime. Your card, your rules.',
-      icon: '🎨',
+      icon: PaintBrush,
     },
   ]
 
@@ -251,8 +277,8 @@ function ForFans() {
             <div className="space-y-5">
               {perks.map((perk) => (
                 <div key={perk.title} className="flex gap-4">
-                  <div className="w-10 h-10 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center justify-center text-lg flex-shrink-0">
-                    {perk.icon}
+                  <div className="w-10 h-10 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 text-teal-600">
+                    <PhIcon icon={perk.icon} className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-slate-900 font-semibold text-sm mb-1">{perk.title}</div>
@@ -268,14 +294,14 @@ function ForFans() {
             <div className="w-64 bg-slate-900 rounded-3xl p-4 shadow-2xl">
               <div className="bg-slate-800 rounded-2xl p-4 mb-3">
                 <div className="text-slate-400 text-xs mb-1">Active Creator</div>
-                <div className="text-white font-bold">MrBeast World 🎮</div>
+                <div className="text-white font-bold flex items-center gap-1.5">MrBeast World <GameController weight="duotone" className="w-4 h-4 text-teal-400" /></div>
               </div>
               <div className="bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl p-4 mb-3 shadow-lg">
                 <div className="text-white/70 text-xs mb-4">CASTAR VIRTUAL CARD</div>
                 <div className="text-white/60 text-xs font-mono mb-3">•••• •••• •••• 4821</div>
                 <div className="flex justify-between items-end">
                   <span className="text-white font-semibold text-sm">Fan Member</span>
-                  <span className="text-white/70 text-xs">⭐ Level 7</span>
+                  <span className="text-white/70 text-xs flex items-center gap-1"><Trophy weight="duotone" className="w-3 h-3" /> Level 7</span>
                 </div>
               </div>
               <div className="bg-slate-800 rounded-2xl p-4 mb-3">
@@ -288,8 +314,15 @@ function ForFans() {
                 </div>
               </div>
               <div className="space-y-2">
-                {['🛒 Starbucks — +12 XP', '👟 Nike — +45 XP', '🎵 Spotify — +8 XP'].map((tx) => (
-                  <div key={tx} className="bg-slate-800 rounded-xl px-3 py-2 text-slate-400 text-xs">{tx}</div>
+                {[
+                  { Icon: ShoppingCart, label: 'Starbucks — +12 XP' },
+                  { Icon: Sneaker, label: 'Nike — +45 XP' },
+                  { Icon: MusicNote, label: 'Spotify — +8 XP' },
+                ].map(({ Icon, label }) => (
+                  <div key={label} className="bg-slate-800 rounded-xl px-3 py-2 text-slate-400 text-xs flex items-center gap-2">
+                    <Icon weight="duotone" className="w-3.5 h-3.5 flex-shrink-0" />
+                    {label}
+                  </div>
                 ))}
               </div>
             </div>
@@ -306,7 +339,7 @@ function CreatorForm() {
   if (status === 'success') {
     return (
       <div className="mt-8 bg-teal-50 border border-teal-200 rounded-2xl py-5 px-6 text-center">
-        <div className="text-2xl mb-2">🎉</div>
+        <div className="flex justify-center mb-2"><Confetti weight="duotone" className="w-8 h-8 text-teal-600" /></div>
         <div className="text-teal-800 font-bold text-base mb-1">Application received!</div>
         <div className="text-teal-600 text-sm">We'll be in touch within 48 hours.</div>
       </div>
@@ -342,22 +375,22 @@ function ForCreators() {
     {
       title: 'True Passive Income',
       desc: 'Stop relying on one-off sponsorships. Earn a percentage of your community\'s everyday spending for years to come.',
-      icon: '💰',
+      icon: Money,
     },
     {
       title: 'Zero Cost to Fans',
       desc: 'Never ask your audience for money again. They get free cashback; you get a revenue share from the world\'s biggest retail brands.',
-      icon: '🎁',
+      icon: Gift,
     },
     {
       title: 'Boost Your D2C Sales',
       desc: 'Have your own merch or cosmetics line? We\'ll subsidize massive cashback rates on your store to drive explosive sales and card adoption.',
-      icon: '🚀',
+      icon: Rocket,
     },
     {
       title: 'Turnkey Infrastructure',
       desc: 'Live in 14 days. We handle the banking, the compliance, and the gamification. You just invite your fans.',
-      icon: '⚡',
+      icon: Lightning,
     },
   ]
 
@@ -405,8 +438,8 @@ function ForCreators() {
             <div className="space-y-5">
               {perks.map((perk) => (
                 <div key={perk.title} className="flex gap-4">
-                  <div className="w-10 h-10 bg-teal-50 rounded-xl border border-teal-100 flex items-center justify-center text-lg flex-shrink-0">
-                    {perk.icon}
+                  <div className="w-10 h-10 bg-teal-50 rounded-xl border border-teal-100 flex items-center justify-center flex-shrink-0 text-teal-600">
+                    <PhIcon icon={perk.icon} className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-slate-900 font-semibold text-sm mb-1">{perk.title}</div>
@@ -636,14 +669,14 @@ function ImpactEngine() {
 
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:border-teal-200 transition-colors">
-            <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center mb-5 text-xl">🌍</div>
+            <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center mb-5 text-teal-600"><Globe weight="duotone" className="w-5 h-5" /></div>
             <h3 className="text-slate-900 font-bold text-lg mb-3">Brand-Funded Impact</h3>
             <p className="text-slate-500 text-sm leading-relaxed">
               A percentage of our brand commissions goes directly to a charity chosen by your creator. You spend nothing extra — the brands pay.
             </p>
           </div>
           <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:border-teal-200 transition-colors">
-            <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center mb-5 text-xl">🪙</div>
+            <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center mb-5 text-teal-600"><Coin weight="duotone" className="w-5 h-5" /></div>
             <h3 className="text-slate-900 font-bold text-lg mb-3">Spare Change Round-Ups</h3>
             <p className="text-slate-500 text-sm leading-relaxed">
               Buy a coffee for $4.50. We round it up to $5.00 and donate the $0.50 to causes like animal shelters, mental health, or climate action. Watch your impact grow in real-time.
@@ -659,12 +692,12 @@ function ImpactEngine() {
           }} />
           <div className="relative grid md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: '🐾', cause: 'Animal Shelters', desc: 'Support local shelters and rescue organizations' },
-              { icon: '🧠', cause: 'Mental Health', desc: 'Fund awareness campaigns and access to care' },
-              { icon: '🌱', cause: 'Climate Action', desc: 'Back reforestation and clean energy projects' },
+              { icon: PawPrint, cause: 'Animal Shelters', desc: 'Support local shelters and rescue organizations' },
+              { icon: Brain, cause: 'Mental Health', desc: 'Fund awareness campaigns and access to care' },
+              { icon: Leaf, cause: 'Climate Action', desc: 'Back reforestation and clean energy projects' },
             ].map((item) => (
               <div key={item.cause}>
-                <div className="text-4xl mb-3">{item.icon}</div>
+                <div className="flex justify-center mb-3"><item.icon weight="duotone" className="w-10 h-10 text-white/80" /></div>
                 <div className="text-white font-bold text-lg mb-2">{item.cause}</div>
                 <div className="text-white/60 text-sm leading-relaxed">{item.desc}</div>
               </div>
@@ -701,7 +734,7 @@ function FinalCTA() {
 
         {status === 'success' ? (
           <div className="bg-teal-500/10 border border-teal-500/20 rounded-2xl py-8 px-6">
-            <div className="text-4xl mb-4">🎉</div>
+            <div className="flex justify-center mb-4"><Confetti weight="duotone" className="w-10 h-10 text-teal-400" /></div>
             <div className="text-white font-bold text-xl mb-2">You're on the list!</div>
             <div className="text-slate-400 text-sm">We'll reach out when your early access is ready.</div>
           </div>
@@ -728,7 +761,7 @@ function FinalCTA() {
         {status === 'error' && (
           <p className="text-red-400 text-xs mt-3">Something went wrong. Please try again.</p>
         )}
-        <p className="text-slate-600 text-xs mt-6">We promise no SPAM 🤞</p>
+        <p className="text-slate-600 text-xs mt-6 flex items-center justify-center gap-1">We promise no SPAM <SealCheck weight="duotone" className="w-4 h-4 text-teal-500" /></p>
       </div>
     </section>
   )
