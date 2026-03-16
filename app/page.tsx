@@ -541,6 +541,7 @@ function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-6">
             <a href="#for-creators" className="text-slate-500 hover:text-slate-300 text-sm transition-colors">Creator Application</a>
             <a href="mailto:hello@castar.tech" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">Support</a>
+            <a href="https://www.linkedin.com/company/castartech" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">LinkedIn</a>
           </div>
         </div>
         <div className="border-t border-slate-900 pt-6">
