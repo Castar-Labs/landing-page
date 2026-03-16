@@ -5,13 +5,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Castar Architecting Entertainment Finance',
+  title: 'Castar — One Card. Infinite Worlds.',
   description:
-    'The ultimate white-label microbanking platform for the creator economy. Launch a fully compliant, creator-branded stablecoin bank in days—with zero technical or regulatory friction.',
+    'Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators—without spending an extra dime.',
   openGraph: {
-    title: 'Castar Architecting Entertainment Finance',
+    title: 'Castar — One Card. Infinite Worlds.',
     description:
-      'We turn massive audiences into thriving micro-economies. Launch a creator-branded stablecoin bank in days.',
+      'Support your favorite creators passively. Earn XP, unlock exclusive rewards, and fund their chosen charities—just by spending like normal.',
     type: 'website',
   },
 }
