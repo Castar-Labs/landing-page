@@ -28,21 +28,21 @@ function useLoopsForm(userGroup: 'fan' | 'creator') {
 
 function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
             <img src="/logo.svg" alt="Castar" className="h-8 w-auto" />
-            <span className="text-slate-900 font-bold text-lg tracking-tight">Castar</span>
+            <span className="text-white font-bold text-lg tracking-tight">Castar</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#for-fans" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">For Fans</a>
-            <a href="#for-creators" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">For Creators</a>
-            <a href="#impact" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">Impact</a>
+            <a href="#for-fans" className="text-slate-400 hover:text-white text-sm transition-colors">For Fans</a>
+            <a href="#for-creators" className="text-slate-400 hover:text-white text-sm transition-colors">For Creators</a>
+            <a href="#impact" className="text-slate-400 hover:text-white text-sm transition-colors">Impact</a>
           </div>
           <a
             href="#waitlist"
-            className="bg-teal-600 hover:bg-teal-500 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-colors"
+            className="bg-teal-500 hover:bg-teal-400 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-colors"
           >
             Get Early Access
           </a>
@@ -77,10 +77,28 @@ function Hero() {
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 rounded-full px-4 py-1.5 mb-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-28">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Stacked rotating cards — first on mobile */}
+          <div className="relative flex items-center justify-center h-56 sm:h-64 lg:h-80 order-first lg:order-last">
+            <div className="absolute" style={{ transform: 'rotate(-8deg) translateY(16px) translateX(-8px)' }}>
+              <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar="🎵" />
+            </div>
+            <div className="absolute" style={{ transform: 'rotate(4deg) translateY(-8px) translateX(8px)' }}>
+              <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar="🎮" />
+            </div>
+            <div className="relative">
+              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar="⭐" />
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
+                Active — 2,450 XP
+              </div>
+            </div>
+          </div>
+
+          {/* Text content — second on mobile, first on desktop */}
+          <div className="order-last lg:order-first">
+            {/* Badge: above title on desktop only */}
+            <div className="hidden lg:inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 rounded-full px-4 py-1.5 mb-8">
               <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
               <span className="text-teal-400 text-sm font-medium">Now accepting early access signups</span>
             </div>
@@ -91,6 +109,12 @@ function Hero() {
                 Infinite Worlds.
               </span>
             </h1>
+
+            {/* Badge: below title on mobile only */}
+            <div className="lg:hidden inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 rounded-full px-4 py-1.5 mb-6">
+              <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+              <span className="text-teal-400 text-sm font-medium">Now accepting early access signups</span>
+            </div>
 
             <p className="text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
               Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators—without spending an extra dime.
@@ -109,22 +133,6 @@ function Hero() {
               >
                 Apply as a Creator
               </a>
-            </div>
-          </div>
-
-          {/* Stacked rotating cards */}
-          <div className="relative flex items-center justify-center h-64 lg:h-80">
-            <div className="absolute" style={{ transform: 'rotate(-8deg) translateY(16px) translateX(-8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar="🎵" />
-            </div>
-            <div className="absolute" style={{ transform: 'rotate(4deg) translateY(-8px) translateX(8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar="🎮" />
-            </div>
-            <div className="relative">
-              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar="⭐" />
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
-                Active — 2,450 XP
-              </div>
             </div>
           </div>
         </div>
