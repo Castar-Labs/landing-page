@@ -103,7 +103,7 @@ function Hero() {
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-16 sm:py-28">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-10 sm:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Stacked rotating cards — first on mobile */}
           <div className="relative flex items-center justify-center h-56 sm:h-64 lg:h-80 order-first lg:order-last">
@@ -203,7 +203,7 @@ function HowItWorks() {
   ]
 
   return (
-    <section className="py-16 sm:py-28 bg-white">
+    <section className="py-10 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-teal-600 text-xs font-semibold uppercase tracking-widest mb-4">How It Works</div>
@@ -260,7 +260,7 @@ function ForFans() {
   ]
 
   return (
-    <section id="for-fans" className="py-16 sm:py-28 bg-slate-50 border-t border-slate-100">
+    <section id="for-fans" className="py-10 sm:py-28 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -395,7 +395,7 @@ function ForCreators() {
   ]
 
   return (
-    <section id="for-creators" className="py-16 sm:py-28 bg-white border-t border-slate-100">
+    <section id="for-creators" className="py-10 sm:py-28 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Creator dashboard mockup */}
@@ -529,7 +529,7 @@ function ComparisonTable() {
   }
 
   return (
-    <section className="py-16 sm:py-28 bg-slate-950 border-t border-slate-900">
+    <section className="py-10 sm:py-28 bg-slate-950 border-t border-slate-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-teal-400 text-xs font-semibold uppercase tracking-widest mb-4">The Competitive Edge</div>
@@ -655,7 +655,7 @@ function ComparisonTable() {
 
 function ImpactEngine() {
   return (
-    <section id="impact" className="py-16 sm:py-28 bg-slate-50 border-t border-slate-100">
+    <section id="impact" className="py-10 sm:py-28 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-teal-600 text-xs font-semibold uppercase tracking-widest mb-4">The Impact Engine</div>
@@ -716,7 +716,7 @@ function FinalCTA() {
   const { email, setEmail, status, handleSubmit } = useLoopsForm('fan')
 
   return (
-    <section id="waitlist" className="py-16 sm:py-28 bg-slate-950">
+    <section id="waitlist" className="py-10 sm:py-28 bg-slate-950">
       <div className="absolute inset-x-0" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(20,184,166,0.3), transparent)' }} />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 rounded-full px-4 py-1.5 mb-8">
