@@ -117,7 +117,7 @@ function Hero() {
             </div>
 
             <p className="text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-              Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators—without spending an extra dime.
+              Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators — without spending an extra dime.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -157,7 +157,7 @@ function HowItWorks() {
     {
       num: '02',
       title: 'Spend Like Normal',
-      desc: 'Add your free Castar virtual card to Apple Pay or Google Pay. Buy your morning coffee, order pizza, or shop for sneakers—nothing changes.',
+      desc: 'Add your free Castar virtual card to Apple Pay or Google Pay. Buy your morning coffee, order pizza, or shop for sneakers — nothing changes.',
       icon: (
         <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
@@ -167,7 +167,7 @@ function HowItWorks() {
     {
       num: '03',
       title: 'Level Up & Give Back',
-      desc: 'Every swipe earns you XP, unlocks creator rewards—merch, shoutouts, private chats—and automatically funds their chosen charity.',
+      desc: 'Every swipe earns you XP, unlocks creator rewards/merch, shoutouts, private chats and automatically funds their chosen charity.',
       icon: (
         <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
@@ -423,6 +423,203 @@ function ForCreators() {
   )
 }
 
+function ComparisonTable() {
+  const features = [
+    {
+      label: 'Support Creators for Free',
+      neobank: { check: false, text: null },
+      creatorSubs: { check: false, text: null },
+      rewards: { check: false, text: null },
+      castar: { check: true, text: 'Funded by Brands' },
+    },
+    {
+      label: 'Earn Cashback on Spend',
+      neobank: { check: null, text: 'Basic / Limited' },
+      creatorSubs: { check: false, text: null },
+      rewards: { check: true, text: null },
+      castar: { check: true, text: 'Up to 20% CLO' },
+    },
+    {
+      label: 'Gamified XP & Leaderboards',
+      neobank: { check: false, text: null },
+      creatorSubs: { check: false, text: null },
+      rewards: { check: false, text: null },
+      castar: { check: true, text: null },
+    },
+    {
+      label: 'Creator-Branded UI / App',
+      neobank: { check: false, text: null },
+      creatorSubs: { check: true, text: null },
+      rewards: { check: false, text: null },
+      castar: { check: true, text: 'Dynamic Theming' },
+    },
+    {
+      label: 'Automatic Charity Impact',
+      neobank: { check: null, text: 'Optional / Manual' },
+      creatorSubs: { check: false, text: null },
+      rewards: { check: false, text: null },
+      castar: { check: true, text: 'Built-in' },
+    },
+  ]
+
+  type CellValue = { check: boolean | null; text: string | null }
+
+  function Check() {
+    return (
+      <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mx-auto" aria-hidden="true">
+        <circle cx="10" cy="10" r="10" fill="rgba(20,184,166,0.15)" />
+        <path d="M5.5 10.5l3 3 6-6" stroke="#2dd4bf" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    )
+  }
+
+  function Cross() {
+    return (
+      <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mx-auto" aria-hidden="true">
+        <circle cx="10" cy="10" r="10" fill="rgba(100,116,139,0.12)" />
+        <path d="M7 7l6 6M13 7l-6 6" stroke="#475569" strokeWidth="1.6" strokeLinecap="round" />
+      </svg>
+    )
+  }
+
+  function Cell({ value }: { value: CellValue }) {
+    if (value.check === false) return <Cross />
+    if (value.check === true) {
+      return (
+        <span className="inline-flex flex-col items-center gap-1">
+          <Check />
+          {value.text && <span className="text-teal-400 text-[11px] font-medium leading-tight">{value.text}</span>}
+        </span>
+      )
+    }
+    return <span className="text-slate-500 text-xs font-medium">{value.text}</span>
+  }
+
+  return (
+    <section className="py-28 bg-slate-950 border-t border-slate-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-teal-400 text-xs font-semibold uppercase tracking-widest mb-4">The Competitive Edge</div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+            Why Castar{' '}
+            <span className="bg-gradient-to-r from-teal-400 to-violet-400 bg-clip-text text-transparent">wins.</span>
+          </h2>
+          <p className="text-slate-400 text-lg leading-relaxed">
+            The only card that combines banking, creator support, and rewards.
+          </p>
+        </div>
+
+        {/* ── Mobile layout (< md) ── */}
+        <div className="md:hidden flex flex-col gap-3">
+          {features.map((row) => {
+            const competitors: { label: string; sub: string; value: CellValue }[] = [
+              { label: 'Neobanks', sub: 'Revolut', value: row.neobank },
+              { label: 'Creator Subs', sub: 'OnlyFans', value: row.creatorSubs },
+              { label: 'Rewards Apps', sub: 'Honey', value: row.rewards },
+            ]
+            return (
+              <div key={row.label} className="rounded-xl border border-slate-800 overflow-hidden">
+                {/* Feature label */}
+                <div className="bg-slate-900/60 px-4 py-3 text-slate-300 text-sm font-semibold">
+                  {row.label}
+                </div>
+                {/* Castar — highlighted, first */}
+                <div
+                  className="flex items-center justify-between px-4 py-3 border-t-2 border-violet-500/40"
+                  style={{ background: 'linear-gradient(90deg, rgba(109,40,217,0.18), rgba(109,40,217,0.08))' }}
+                >
+                  <span className="text-violet-300 text-xs font-bold tracking-wide">✦ Castar</span>
+                  <span className="flex items-center gap-1.5">
+                    <Cell value={row.castar} />
+                  </span>
+                </div>
+                {/* Competitors */}
+                {competitors.map((c) => (
+                  <div key={c.label} className="flex items-center justify-between px-4 py-2.5 border-t border-slate-800/60">
+                    <span className="text-slate-500 text-xs">
+                      {c.label} <span className="text-slate-700">· {c.sub}</span>
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Cell value={c.value} />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )
+          })}
+        </div>
+
+        {/* ── Desktop layout (≥ md) ── */}
+        <div className="hidden md:block rounded-2xl border border-slate-800 overflow-hidden">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr>
+                <th className="text-left px-6 py-5 text-slate-500 text-xs font-semibold uppercase tracking-wider bg-slate-900/60 w-[30%] border-b border-slate-800">
+                  Feature
+                </th>
+                <th
+                  className="px-5 py-5 text-center border-b border-violet-500/40 border-l-2 border-l-violet-500/50 relative"
+                  style={{ background: 'linear-gradient(180deg, rgba(109,40,217,0.18) 0%, rgba(109,40,217,0.06) 100%)' }}
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-0.5 rounded-t-sm"
+                    style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.7), transparent)' }}
+                  />
+                  <span className="block text-violet-300 text-sm font-bold tracking-tight">Castar</span>
+                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-violet-400/80 uppercase tracking-widest mt-1">
+                    ✦ Best choice
+                  </span>
+                </th>
+                {[
+                  { label: 'Neobanks', sub: 'Revolut' },
+                  { label: 'Creator Subs', sub: 'OnlyFans / Patreon' },
+                  { label: 'Rewards Apps', sub: 'Honey' },
+                ].map((col) => (
+                  <th
+                    key={col.label}
+                    className="px-5 py-5 text-center bg-slate-900/40 border-b border-slate-800 border-l border-slate-800"
+                  >
+                    <span className="block text-slate-400 text-sm font-semibold">{col.label}</span>
+                    <span className="block text-slate-600 text-xs mt-0.5">{col.sub}</span>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {features.map((row, i) => (
+                <tr key={row.label} className={i % 2 === 0 ? 'bg-slate-900/20' : 'bg-transparent'}>
+                  <td className="px-6 py-5 text-slate-300 text-sm font-medium border-t border-slate-800/70">
+                    {row.label}
+                  </td>
+                  <td
+                    className="px-5 py-5 text-center border-t border-violet-500/20 border-l-2 border-l-violet-500/50"
+                    style={{ background: 'linear-gradient(180deg, rgba(109,40,217,0.10) 0%, rgba(109,40,217,0.04) 100%)' }}
+                  >
+                    <Cell value={row.castar} />
+                  </td>
+                  <td className="px-5 py-5 text-center border-t border-slate-800/70 border-l border-slate-800/50">
+                    <Cell value={row.neobank} />
+                  </td>
+                  <td className="px-5 py-5 text-center border-t border-slate-800/70 border-l border-slate-800/50">
+                    <Cell value={row.creatorSubs} />
+                  </td>
+                  <td className="px-5 py-5 text-center border-t border-slate-800/70 border-l border-slate-800/50">
+                    <Cell value={row.rewards} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p className="text-slate-600 text-xs text-center mt-6">
+          Competitor features based on publicly available information as of 2026. Subject to change.
+        </p>
+      </div>
+    </section>
+  )
+}
+
 function ImpactEngine() {
   return (
     <section id="impact" className="py-28 bg-slate-50 border-t border-slate-100">
@@ -442,7 +639,7 @@ function ImpactEngine() {
             <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center mb-5 text-xl">🌍</div>
             <h3 className="text-slate-900 font-bold text-lg mb-3">Brand-Funded Impact</h3>
             <p className="text-slate-500 text-sm leading-relaxed">
-              A percentage of our brand commissions goes directly to a charity chosen by your creator. You spend nothing extra—the brands pay.
+              A percentage of our brand commissions goes directly to a charity chosen by your creator. You spend nothing extra — the brands pay.
             </p>
           </div>
           <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:border-teal-200 transition-colors">
@@ -571,6 +768,7 @@ export default function Home() {
       <HowItWorks />
       <ForFans />
       <ForCreators />
+      <ComparisonTable />
       <ImpactEngine />
       <FinalCTA />
       <Footer />
