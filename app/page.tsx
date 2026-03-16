@@ -114,7 +114,7 @@ function Hero() {
               <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="relative">
-              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<Trophy weight="duotone" className="w-5 h-5 text-white" />} />
+              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<img src="/logo3.svg" className="w-5 h-5 brightness-0 invert" alt="Castar" />} />
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
                 Active — 2,450 XP
               </div>
