@@ -58,7 +58,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
-            <img src="/logo.svg" alt="Castar" className="h-8 w-auto" />
+            <img src="/logo2.svg" alt="Castar" className="h-8 w-auto" />
             <span className="text-white font-bold text-lg tracking-tight">Castar</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -103,7 +103,7 @@ function Hero() {
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-10 sm:py-28">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Stacked rotating cards — first on mobile */}
           <div className="relative flex items-center justify-center h-56 sm:h-64 lg:h-80 order-first lg:order-last">
@@ -111,7 +111,7 @@ function Hero() {
               <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar={<MusicNote weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="absolute" style={{ transform: 'rotate(4deg) translateY(-8px) translateX(8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
+              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="relative">
               <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<Trophy weight="duotone" className="w-5 h-5 text-white" />} />
@@ -773,7 +773,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-2.5">
-            <img src="/logo.svg" alt="Castar" className="h-6 w-auto" />
+            <img src="/logo2.svg" alt="Castar" className="h-6 w-auto" />
             <span className="text-white font-bold text-sm">Castar</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6">
