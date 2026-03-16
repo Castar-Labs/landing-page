@@ -58,7 +58,7 @@ function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
-            <img src="/logo2.svg" alt="Castar" className="h-8 w-auto" />
+            <img src="/logo3.svg" alt="Castar" className="h-8 w-auto" />
             <span className="text-white font-bold text-lg tracking-tight">Castar</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -773,7 +773,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-2.5">
-            <img src="/logo2.svg" alt="Castar" className="h-6 w-auto" />
+            <img src="/logo3.svg" alt="Castar" className="h-6 w-auto" />
             <span className="text-white font-bold text-sm">Castar</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6">
