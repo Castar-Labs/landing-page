@@ -32,9 +32,7 @@ function VirtualCard({ gradient, avatar }: { gradient: string; avatar: React.Rea
 
 function Hero() {
   return (
-    <section id="main-content" className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-slate-950">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900" />
-
+    <section id="main-content" className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-b from-teal-50/60 to-white">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:py-24 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Stacked rotating cards — first on mobile */}
@@ -55,25 +53,25 @@ function Hero() {
 
           {/* Text content */}
           <div className="order-last lg:order-first">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.06] tracking-tight mb-5 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-slate-900 leading-[1.06] tracking-tight mb-5 sm:mb-6">
               One Card.{' '}
-              <span className="text-teal-400">Infinite Worlds.</span>
+              <span className="text-teal-600">Infinite Worlds.</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-400 mb-8 sm:mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-500 mb-8 sm:mb-10 max-w-xl leading-relaxed">
               Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators — without spending an extra dime.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#for-creators"
-                className="inline-flex items-center justify-center bg-teal-500 hover:bg-teal-400 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all motion-safe:hover:scale-[1.02] shadow-lg shadow-teal-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                className="inline-flex items-center justify-center bg-teal-500 hover:bg-teal-400 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all motion-safe:hover:scale-[1.02] shadow-lg shadow-teal-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 Apply as a Creator
               </a>
               <a
                 href="#waitlist"
-                className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                className="inline-flex items-center justify-center bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-700 font-semibold px-8 py-4 rounded-xl text-base transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 Join Fan Waitlist
               </a>
@@ -314,7 +312,7 @@ function Check() {
   return (
     <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mx-auto" aria-hidden="true">
       <circle cx="10" cy="10" r="10" fill="rgba(20,184,166,0.15)" />
-      <path d="M5.5 10.5l3 3 6-6" stroke="#2dd4bf" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5.5 10.5l3 3 6-6" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -334,7 +332,7 @@ function Cell({ value }: { value: CellValue }) {
     return (
       <span className="inline-flex flex-col items-center gap-1">
         <Check />
-        {value.text && <span className="text-teal-400 text-[11px] font-medium leading-tight">{value.text}</span>}
+        {value.text && <span className="text-teal-700 text-[11px] font-medium leading-tight">{value.text}</span>}
       </span>
     )
   }
@@ -381,13 +379,13 @@ const features = [
 
 function ComparisonTable() {
   return (
-    <section className="py-14 sm:py-20 lg:py-28 bg-slate-950 border-t border-slate-900">
+    <section className="py-14 sm:py-20 lg:py-28 bg-slate-50 border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
-            Why Castar <span className="text-teal-400">wins.</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5">
+            Why Castar <span className="text-teal-600">wins.</span>
           </h2>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="text-slate-500 text-lg leading-relaxed">
             The only card that combines banking, creator support, and rewards.
           </p>
         </div>
@@ -401,23 +399,23 @@ function ComparisonTable() {
               { label: 'Rewards Apps', sub: 'Honey', value: row.rewards },
             ]
             return (
-              <div key={row.label} className="rounded-xl border border-slate-800 overflow-hidden">
-                <div className="bg-slate-900/60 px-4 py-3 text-slate-300 text-sm font-semibold">
+              <div key={row.label} className="rounded-xl border border-slate-200 overflow-hidden bg-white">
+                <div className="bg-slate-100 px-4 py-3 text-slate-700 text-sm font-semibold">
                   {row.label}
                 </div>
                 <div
                   className="flex items-center justify-between px-4 py-3 border-t-2 border-teal-500/40"
-                  style={{ background: 'linear-gradient(90deg, rgba(20,184,166,0.15), rgba(20,184,166,0.06))' }}
+                  style={{ background: 'linear-gradient(90deg, rgba(20,184,166,0.10), rgba(20,184,166,0.04))' }}
                 >
-                  <span className="text-teal-300 text-xs font-bold tracking-wide">✦ Castar</span>
+                  <span className="text-teal-700 text-xs font-bold tracking-wide">✦ Castar</span>
                   <span className="flex items-center gap-1.5">
                     <Cell value={row.castar} />
                   </span>
                 </div>
                 {competitors.map((c) => (
-                  <div key={c.label} className="flex items-center justify-between px-4 py-2.5 border-t border-slate-800/60">
+                  <div key={c.label} className="flex items-center justify-between px-4 py-2.5 border-t border-slate-100">
                     <span className="text-slate-500 text-xs">
-                      {c.label} <span className="text-slate-700">· {c.sub}</span>
+                      {c.label} <span className="text-slate-400">· {c.sub}</span>
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Cell value={c.value} />
@@ -430,19 +428,19 @@ function ComparisonTable() {
         </div>
 
         {/* ── Desktop layout (≥ md) ── */}
-        <div className="hidden md:block rounded-2xl border border-slate-800 overflow-hidden">
+        <div className="hidden md:block rounded-2xl border border-slate-200 overflow-hidden bg-white">
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th scope="col" className="text-left px-6 py-5 text-slate-500 text-xs font-semibold uppercase tracking-wider bg-slate-900/60 w-[30%] border-b border-slate-800">
+                <th scope="col" className="text-left px-6 py-5 text-slate-500 text-xs font-semibold uppercase tracking-wider bg-slate-50 w-[30%] border-b border-slate-200">
                   Feature
                 </th>
                 <th
                   scope="col"
                   className="px-5 py-5 text-center border-b border-teal-500/40 border-l-2 border-l-teal-500/50"
-                  style={{ background: 'linear-gradient(180deg, rgba(20,184,166,0.18) 0%, rgba(20,184,166,0.06) 100%)' }}
+                  style={{ background: 'linear-gradient(180deg, rgba(20,184,166,0.12) 0%, rgba(20,184,166,0.04) 100%)' }}
                 >
-                  <span className="block text-teal-300 text-sm font-bold tracking-tight">Castar</span>
+                  <span className="block text-teal-700 text-sm font-bold tracking-tight">Castar</span>
                 </th>
                 {[
                   { label: 'Neobanks', sub: 'Revolut' },
@@ -452,33 +450,33 @@ function ComparisonTable() {
                   <th
                     key={col.label}
                     scope="col"
-                    className="px-5 py-5 text-center bg-slate-900/40 border-b border-slate-800 border-l border-slate-800"
+                    className="px-5 py-5 text-center bg-slate-50/60 border-b border-slate-200 border-l border-slate-200"
                   >
-                    <span className="block text-slate-400 text-sm font-semibold">{col.label}</span>
-                    <span className="block text-slate-600 text-xs mt-0.5">{col.sub}</span>
+                    <span className="block text-slate-600 text-sm font-semibold">{col.label}</span>
+                    <span className="block text-slate-400 text-xs mt-0.5">{col.sub}</span>
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {features.map((row, i) => (
-                <tr key={row.label} className={i % 2 === 0 ? 'bg-slate-900/20' : 'bg-transparent'}>
-                  <th scope="row" className="px-6 py-5 text-left text-slate-300 text-sm font-medium border-t border-slate-800/70">
+                <tr key={row.label} className={i % 2 === 0 ? 'bg-slate-50/40' : 'bg-white'}>
+                  <th scope="row" className="px-6 py-5 text-left text-slate-700 text-sm font-medium border-t border-slate-200">
                     {row.label}
                   </th>
                   <td
                     className="px-5 py-5 text-center border-t border-teal-500/20 border-l-2 border-l-teal-500/50"
-                    style={{ background: 'linear-gradient(180deg, rgba(20,184,166,0.10) 0%, rgba(20,184,166,0.04) 100%)' }}
+                    style={{ background: 'linear-gradient(180deg, rgba(20,184,166,0.08) 0%, rgba(20,184,166,0.03) 100%)' }}
                   >
                     <Cell value={row.castar} />
                   </td>
-                  <td className="px-5 py-5 text-center border-t border-slate-800/70 border-l border-slate-800/50">
+                  <td className="px-5 py-5 text-center border-t border-slate-200 border-l border-slate-200">
                     <Cell value={row.neobank} />
                   </td>
-                  <td className="px-5 py-5 text-center border-t border-slate-800/70 border-l border-slate-800/50">
+                  <td className="px-5 py-5 text-center border-t border-slate-200 border-l border-slate-200">
                     <Cell value={row.creatorSubs} />
                   </td>
-                  <td className="px-5 py-5 text-center border-t border-slate-800/70 border-l border-slate-800/50">
+                  <td className="px-5 py-5 text-center border-t border-slate-200 border-l border-slate-200">
                     <Cell value={row.rewards} />
                   </td>
                 </tr>
@@ -487,7 +485,7 @@ function ComparisonTable() {
           </table>
         </div>
 
-        <p className="text-slate-600 text-xs text-center mt-6">
+        <p className="text-slate-400 text-xs text-center mt-6">
           Competitor features based on publicly available information as of 2026. Subject to change.
         </p>
       </div>
@@ -550,27 +548,27 @@ function ImpactEngine() {
 
 function Footer() {
   return (
-    <footer className="border-t border-slate-900 bg-slate-950">
+    <footer className="border-t border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <div className="flex items-center gap-2.5 mb-3">
               <img src="/logo3.svg" alt="Castar" width="28" height="28" className="h-7 w-auto" />
-              <span className="text-white font-bold text-base">Castar</span>
+              <span className="text-slate-900 font-bold text-base">Castar</span>
             </div>
             <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
               One card. Every creator. Built for the communities that make the internet worth watching.
             </p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-3">
-            <a href="#for-creators" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">Creator Application</a>
-            <a href="mailto:hello@castar.tech" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">hello@castar.tech</a>
-            <a href="https://www.linkedin.com/company/castartech" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">LinkedIn</a>
+            <a href="#for-creators" className="text-slate-500 hover:text-teal-600 text-sm transition-colors">Creator Application</a>
+            <a href="mailto:hello@castar.tech" className="text-slate-500 hover:text-teal-600 text-sm transition-colors">hello@castar.tech</a>
+            <a href="https://www.linkedin.com/company/castartech" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-teal-600 text-sm transition-colors">LinkedIn</a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-slate-900/80 bg-black/20">
+      <div className="border-t border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <small className="text-slate-500 text-xs">© 2026 Castar Labs. All rights reserved.</small>
           <small className="text-slate-500 text-xs text-center sm:text-right max-w-md leading-relaxed">
