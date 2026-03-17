@@ -545,6 +545,64 @@ function ImpactEngine() {
   )
 }
 
+const faqs = [
+  {
+    q: 'What is Castar?',
+    a: 'Castar is a free financial rewards app and virtual payment card that allows fans to support their favorite creators and earn cashback on everyday purchases, without paying any subscription fees.',
+  },
+  {
+    q: 'Is Castar a bank?',
+    a: 'No, Castar is a financial technology company, not a bank. Banking and card issuing services are provided by our regulated infrastructure partners (via Bridge API). Your funds are held securely in compliant custodial (FBO) accounts.',
+  },
+  {
+    q: 'How much does the Castar app cost?',
+    a: 'Castar is 100% free for fans. There are no monthly fees, no subscription costs, and no hidden charges. You only spend the money you deposit onto your virtual card.',
+  },
+  {
+    q: 'How do I support creators without paying them directly?',
+    a: "When you use your Castar virtual card at partner retail brands, the brand pays a commission. We automatically split this commission between you (as cashback and XP), the creator (as passive income), and a chosen charity. You support them using the brand's marketing budget, not your own money.",
+  },
+  {
+    q: 'What are Card-Linked Offers (CLO)?',
+    a: "Card-Linked Offers are automatic discounts and rewards tied directly to your Castar virtual card. You don't need promo codes or special affiliate links. Just activate the offer in the app, pay with Castar via Apple Pay or Google Pay, and the reward is applied instantly.",
+  },
+  {
+    q: 'How do creators make money on Castar?',
+    a: 'Creators earn a passive revenue share from the everyday spending of their community. Instead of asking fans for out-of-pocket monthly subscriptions (like Patreon), creators earn a percentage of the brand commissions generated when fans use their co-branded Castar card.',
+  },
+  {
+    q: 'Is my money and data safe?',
+    a: 'Yes. Castar uses bank-level encryption and partners with licensed financial institutions. Your funds are never held on our corporate balance sheet, and you can instantly freeze or delete your virtual card directly inside the app at any time.',
+  },
+]
+
+function FAQ() {
+  return (
+    <section className="py-14 sm:py-20 lg:py-28 bg-white border-t border-slate-100">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight mb-10 sm:mb-14">
+          Got questions? We got answers.
+        </h2>
+        <dl className="divide-y divide-slate-100">
+          {faqs.map(({ q, a }) => (
+            <details key={q} className="group py-5">
+              <summary className="flex items-center justify-between gap-4 cursor-pointer list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 rounded">
+                <dt className="text-slate-900 font-semibold text-base sm:text-lg">{q}</dt>
+                <span className="flex-shrink-0 w-5 h-5 text-slate-400 group-open:rotate-45 transition-transform duration-200" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none">
+                    <path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </summary>
+              <dd className="mt-3 text-slate-500 text-sm sm:text-base leading-relaxed pr-9">{a}</dd>
+            </details>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )
+}
+
 function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white">
@@ -579,9 +637,23 @@ function Footer() {
   )
 }
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+}
+
 export default function Home() {
   return (
     <main className="bg-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-teal-500 focus:text-white focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
@@ -595,6 +667,7 @@ export default function Home() {
       <ForFans />
       <ComparisonTable />
       <ImpactEngine />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </main>
