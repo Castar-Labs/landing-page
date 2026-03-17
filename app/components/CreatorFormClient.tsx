@@ -32,9 +32,9 @@ export default function CreatorForm() {
 
   if (status === 'success') {
     return (
-      <div className="mt-8 bg-teal-50 border border-teal-200 rounded-2xl py-5 px-6 text-center">
-        <div className="flex justify-center mb-2"><Confetti weight="duotone" className="w-8 h-8 text-teal-600" /></div>
-        <div className="text-teal-800 font-bold text-base mb-1">Application received!</div>
+      <div className="mt-8 bg-teal-50 border border-teal-200 rounded-2xl py-6 px-6 text-center">
+        <div className="flex justify-center mb-3"><Confetti weight="duotone" className="w-9 h-9 text-teal-600" /></div>
+        <div className="text-teal-800 font-bold text-lg mb-1">Application received!</div>
         <div className="text-teal-600 text-sm">We'll be in touch within 48 hours.</div>
       </div>
     )
@@ -55,7 +55,7 @@ export default function CreatorForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all motion-safe:hover:scale-[1.02] whitespace-nowrap"
+        className="bg-teal-500 hover:bg-teal-400 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all motion-safe:hover:scale-[1.02] shadow-lg shadow-teal-500/25 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-50"
       >
         {status === 'loading' ? 'Sending...' : 'Apply as a Creator →'}
       </button>

@@ -31,7 +31,7 @@ export default function FinalCTA() {
   const { email, setEmail, status, handleSubmit } = useLoopsForm()
 
   return (
-    <section id="waitlist" className="relative py-14 sm:py-24 lg:py-32 bg-slate-950">
+    <section id="waitlist" className="relative py-14 sm:py-20 lg:py-28 bg-slate-950">
       <div className="absolute inset-x-0 top-0" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(20,184,166,0.3), transparent)' }} />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5 sm:mb-6">
@@ -58,12 +58,12 @@ export default function FinalCTA() {
               placeholder="Enter your email..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-white/5 border border-white/10 focus:border-teal-500 focus:ring-2 focus:ring-teal-500 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 text-sm outline-none transition-colors"
+              className="flex-1 bg-white/5 border border-white/10 focus:border-teal-500 focus:ring-2 focus:ring-teal-500 rounded-xl px-4 py-3 text-white placeholder-slate-500 text-sm outline-none transition-colors"
             />
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="bg-teal-500 hover:bg-teal-400 disabled:opacity-60 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition-all motion-safe:hover:scale-[1.02] whitespace-nowrap shadow-lg shadow-teal-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="bg-teal-500 hover:bg-teal-400 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all motion-safe:hover:scale-[1.02] whitespace-nowrap shadow-lg shadow-teal-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               {status === 'loading' ? 'Saving...' : 'Claim My Spot'}
             </button>
@@ -71,7 +71,7 @@ export default function FinalCTA() {
         )}
 
         {status === 'error' && (
-          <p className="text-red-400 text-xs mt-3">
+          <p className="text-red-500 text-xs mt-3">
             Something went wrong — email us at{' '}
             <a href="mailto:hello@castar.tech" className="underline">hello@castar.tech</a>
           </p>

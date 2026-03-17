@@ -36,7 +36,7 @@ export default function Nav() {
           <div className="flex items-center gap-3">
             <a
               href="#for-creators"
-              className="bg-teal-500 hover:bg-teal-400 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="bg-teal-500 hover:bg-teal-400 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all motion-safe:hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               Apply as Creator
             </a>
@@ -65,7 +65,7 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-slate-300 hover:text-white text-base font-medium py-2.5 transition-colors"
+                className="text-slate-300 hover:text-white text-base font-medium py-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded"
               >
                 {l.label}
               </a>

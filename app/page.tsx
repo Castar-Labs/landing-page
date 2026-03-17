@@ -106,7 +106,7 @@ const perksCreators = [
 
 function ForCreators() {
   return (
-    <section id="for-creators" className="py-16 sm:py-24 lg:py-36 bg-teal-50 border-t border-teal-100/60">
+    <section id="for-creators" className="py-14 sm:py-20 lg:py-28 bg-teal-50 border-t border-teal-100/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Creator dashboard mockup */}
@@ -406,10 +406,10 @@ function ComparisonTable() {
                   {row.label}
                 </div>
                 <div
-                  className="flex items-center justify-between px-4 py-3 border-t-2 border-violet-500/40"
-                  style={{ background: 'linear-gradient(90deg, rgba(109,40,217,0.18), rgba(109,40,217,0.08))' }}
+                  className="flex items-center justify-between px-4 py-3 border-t-2 border-teal-500/40"
+                  style={{ background: 'linear-gradient(90deg, rgba(20,184,166,0.15), rgba(20,184,166,0.06))' }}
                 >
-                  <span className="text-violet-300 text-xs font-bold tracking-wide">✦ Castar</span>
+                  <span className="text-teal-300 text-xs font-bold tracking-wide">✦ Castar</span>
                   <span className="flex items-center gap-1.5">
                     <Cell value={row.castar} />
                   </span>
@@ -439,10 +439,10 @@ function ComparisonTable() {
                 </th>
                 <th
                   scope="col"
-                  className="px-5 py-5 text-center border-b border-violet-500/40 border-l-2 border-l-violet-500/50"
-                  style={{ background: 'linear-gradient(180deg, rgba(109,40,217,0.18) 0%, rgba(109,40,217,0.06) 100%)' }}
+                  className="px-5 py-5 text-center border-b border-teal-500/40 border-l-2 border-l-teal-500/50"
+                  style={{ background: 'linear-gradient(180deg, rgba(20,184,166,0.18) 0%, rgba(20,184,166,0.06) 100%)' }}
                 >
-                  <span className="block text-violet-300 text-sm font-bold tracking-tight">Castar</span>
+                  <span className="block text-teal-300 text-sm font-bold tracking-tight">Castar</span>
                 </th>
                 {[
                   { label: 'Neobanks', sub: 'Revolut' },
@@ -467,8 +467,8 @@ function ComparisonTable() {
                     {row.label}
                   </th>
                   <td
-                    className="px-5 py-5 text-center border-t border-violet-500/20 border-l-2 border-l-violet-500/50"
-                    style={{ background: 'linear-gradient(180deg, rgba(109,40,217,0.10) 0%, rgba(109,40,217,0.04) 100%)' }}
+                    className="px-5 py-5 text-center border-t border-teal-500/20 border-l-2 border-l-teal-500/50"
+                    style={{ background: 'linear-gradient(180deg, rgba(20,184,166,0.10) 0%, rgba(20,184,166,0.04) 100%)' }}
                   >
                     <Cell value={row.castar} />
                   </td>
@@ -563,7 +563,7 @@ function Footer() {
             </p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-3">
-            <a href="#for-creators" className="text-slate-500 hover:text-slate-300 text-sm transition-colors">Creator Application</a>
+            <a href="#for-creators" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">Creator Application</a>
             <a href="mailto:hello@castar.tech" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">hello@castar.tech</a>
             <a href="https://www.linkedin.com/company/castartech" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-teal-400 text-sm transition-colors">LinkedIn</a>
           </div>
