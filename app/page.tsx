@@ -208,7 +208,7 @@ function HowItWorks() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-teal-600 text-xs font-semibold uppercase tracking-widest mb-4">How It Works</div>
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight">
-            Support them passively.{' '}
+            Support passively.{' '}
             <span className="bg-gradient-to-r from-teal-600 to-teal-400 bg-clip-text text-transparent">
               Reward yourself instantly.
             </span>
