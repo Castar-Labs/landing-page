@@ -15,7 +15,7 @@ import FinalCTA from './components/FinalCTAClient'
 function VirtualCard({ gradient, avatar }: { gradient: string; avatar: React.ReactNode }) {
   return (
     <div
-      className={`w-72 h-44 rounded-2xl p-6 shadow-2xl flex flex-col justify-between ${gradient}`}
+      className={`w-64 sm:w-72 h-40 sm:h-44 rounded-2xl p-5 sm:p-6 shadow-2xl flex flex-col justify-between ${gradient}`}
       style={{ fontFamily: 'monospace' }}
     >
       <div className="flex items-center justify-between">
@@ -35,10 +35,10 @@ function Hero() {
     <section id="main-content" className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-slate-950">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-28">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:py-24 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Stacked rotating cards — first on mobile */}
-          <div aria-hidden="true" className="relative flex items-center justify-center h-56 sm:h-64 lg:h-80 order-first lg:order-last">
+          <div aria-hidden="true" className="relative flex items-center justify-center h-44 sm:h-56 lg:h-80 order-first lg:order-last">
             <div className="absolute" style={{ transform: 'rotate(-8deg) translateY(16px) translateX(-8px)' }}>
               <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar={<MusicNote weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
@@ -55,12 +55,12 @@ function Hero() {
 
           {/* Text content */}
           <div className="order-last lg:order-first">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.06] tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.06] tracking-tight mb-5 sm:mb-6">
               One Card.{' '}
               <span className="text-teal-400">Infinite Worlds.</span>
             </h1>
 
-            <p className="text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-400 mb-8 sm:mb-10 max-w-xl leading-relaxed">
               Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators — without spending an extra dime.
             </p>
 
@@ -106,7 +106,7 @@ const perksCreators = [
 
 function ForCreators() {
   return (
-    <section id="for-creators" className="py-24 sm:py-36 bg-teal-50 border-t border-teal-100/60">
+    <section id="for-creators" className="py-16 sm:py-24 lg:py-36 bg-teal-50 border-t border-teal-100/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Creator dashboard mockup */}
@@ -141,10 +141,10 @@ function ForCreators() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5 sm:mb-6">
               Monetize loyalty, not just eyeballs.
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
               Your audience already spends thousands every month. It&apos;s time you got a piece of it.
             </p>
 
@@ -189,10 +189,10 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section className="py-20 sm:py-28 bg-white border-t border-slate-100">
+    <section className="py-14 sm:py-20 lg:py-28 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 lg:mb-20">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight max-w-xl">
+        <div className="mb-10 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight max-w-xl">
             Spend the same. Earn more. Give back.
           </h2>
         </div>
@@ -243,14 +243,14 @@ const perksFans = [
 
 function ForFans() {
   return (
-    <section id="for-fans" className="py-20 sm:py-28 bg-slate-50 border-t border-slate-100">
+    <section id="for-fans" className="py-14 sm:py-20 lg:py-28 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5 sm:mb-6">
               The Ultimate Fan Pass.
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed mb-10">
+            <p className="text-slate-500 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
               One free card. Zero extra spending. Everything you love about being a fan — turned into a game you actually win.
             </p>
 
@@ -266,7 +266,7 @@ function ForFans() {
 
           {/* App mockup */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-64 bg-slate-900 rounded-3xl p-4 shadow-2xl">
+            <div className="w-64 sm:w-72 bg-slate-900 rounded-3xl p-4 shadow-2xl">
               <div className="bg-slate-800 rounded-2xl p-4 mb-3">
                 <div className="text-slate-400 text-xs mb-1">Active Creator</div>
                 <div className="text-white font-bold flex items-center gap-1.5">MrBeast World <GameController weight="duotone" className="w-4 h-4 text-teal-400" /></div>
@@ -381,10 +381,10 @@ const features = [
 
 function ComparisonTable() {
   return (
-    <section className="py-20 sm:py-28 bg-slate-950 border-t border-slate-900">
+    <section className="py-14 sm:py-20 lg:py-28 bg-slate-950 border-t border-slate-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
             Why Castar <span className="text-teal-400">wins.</span>
           </h2>
           <p className="text-slate-400 text-lg leading-relaxed">
@@ -497,11 +497,11 @@ function ComparisonTable() {
 
 function ImpactEngine() {
   return (
-    <section id="impact" className="py-20 sm:py-28 bg-white border-t border-slate-100">
+    <section id="impact" className="py-14 sm:py-20 lg:py-28 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 mb-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-10 lg:mb-16 items-start">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               Spend for Good.
             </h2>
           </div>
