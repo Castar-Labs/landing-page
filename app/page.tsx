@@ -1,9 +1,5 @@
-'use client'
-
-import { useState } from 'react'
 import {
   Trophy,
-  Confetti,
   GameController,
   MusicNote,
   ShoppingCart,
@@ -11,97 +7,10 @@ import {
   PawPrint,
   Brain,
   Leaf,
-} from '@phosphor-icons/react'
-
-function useLoopsForm(userGroup: 'fan' | 'creator') {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!email) return
-    setStatus('loading')
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, userGroup }),
-      })
-      if (!res.ok) throw new Error('Submission failed')
-      setStatus('success')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  return { email, setEmail, status, handleSubmit }
-}
-
-function Nav() {
-  const [open, setOpen] = useState(false)
-  const links = [
-    { href: '#for-creators', label: 'For Creators' },
-    { href: '#for-fans', label: 'For Fans' },
-    { href: '#impact', label: 'Impact' },
-  ]
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2.5">
-            <img src="/logo3.svg" alt="Castar" className="h-8 w-auto" />
-            <span className="text-white font-bold text-lg tracking-tight">Castar</span>
-          </div>
-
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
-            {links.map((l) => (
-              <a key={l.href} href={l.href} className="text-slate-400 hover:text-white text-sm transition-colors">{l.label}</a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <a
-              href="#for-creators"
-              className="bg-teal-500 hover:bg-teal-400 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-colors"
-            >
-              Apply as Creator
-            </a>
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setOpen((o) => !o)}
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-              aria-label={open ? 'Close menu' : 'Open menu'}
-            >
-              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? 'translate-y-2 rotate-45' : ''}`} />
-              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
-              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? '-translate-y-2 -rotate-45' : ''}`} />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-md">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-slate-300 hover:text-white text-base font-medium py-2.5 transition-colors"
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-    </nav>
-  )
-}
+} from '@phosphor-icons/react/dist/ssr'
+import Nav from './components/NavClient'
+import CreatorForm from './components/CreatorFormClient'
+import FinalCTA from './components/FinalCTAClient'
 
 function VirtualCard({ gradient, avatar }: { gradient: string; avatar: React.ReactNode }) {
   return (
@@ -123,13 +32,13 @@ function VirtualCard({ gradient, avatar }: { gradient: string; avatar: React.Rea
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-slate-950">
+    <section id="main-content" className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-slate-950">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Stacked rotating cards — first on mobile */}
-          <div className="relative flex items-center justify-center h-56 sm:h-64 lg:h-80 order-first lg:order-last">
+          <div aria-hidden="true" className="relative flex items-center justify-center h-56 sm:h-64 lg:h-80 order-first lg:order-last">
             <div className="absolute" style={{ transform: 'rotate(-8deg) translateY(16px) translateX(-8px)' }}>
               <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar={<MusicNote weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
@@ -137,7 +46,7 @@ function Hero() {
               <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
             </div>
             <div className="relative">
-              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<img src="/logo3.svg" className="w-5 h-5 brightness-0 invert" alt="Castar" />} />
+              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<img src="/logo3.svg" width="20" height="20" className="w-5 h-5 brightness-0 invert" alt="Castar" />} />
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
                 Active — 2,450 XP
               </div>
@@ -158,13 +67,13 @@ function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#for-creators"
-                className="inline-flex items-center justify-center bg-teal-500 hover:bg-teal-400 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all hover:scale-[1.02] shadow-lg shadow-teal-500/25"
+                className="inline-flex items-center justify-center bg-teal-500 hover:bg-teal-400 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all motion-safe:hover:scale-[1.02] shadow-lg shadow-teal-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 Apply as a Creator
               </a>
               <a
                 href="#waitlist"
-                className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all"
+                className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 Join Fan Waitlist
               </a>
@@ -176,26 +85,26 @@ function Hero() {
   )
 }
 
-function ForCreators() {
-  const perks = [
-    {
-      title: 'True Passive Income',
-      desc: 'Stop relying on one-off sponsorships. Earn a percentage of your community\'s everyday spending for years to come.',
-    },
-    {
-      title: 'Zero Cost to Fans',
-      desc: 'Never ask your audience for money again. They get free cashback; you get a revenue share from the world\'s biggest retail brands.',
-    },
-    {
-      title: 'Boost Your D2C Sales',
-      desc: 'Have your own merch or cosmetics line? We\'ll subsidize massive cashback rates on your store to drive explosive sales and card adoption.',
-    },
-    {
-      title: 'Turnkey Infrastructure',
-      desc: 'Live in 14 days. We handle the banking, the compliance, and the gamification. You just invite your fans.',
-    },
-  ]
+const perksCreators = [
+  {
+    title: 'True Passive Income',
+    desc: "Stop relying on one-off sponsorships. Earn a percentage of your community's everyday spending for years to come.",
+  },
+  {
+    title: 'Zero Cost to Fans',
+    desc: "Never ask your audience for money again. They get free cashback; you get a revenue share from the world's biggest retail brands.",
+  },
+  {
+    title: 'Boost Your D2C Sales',
+    desc: "Have your own merch or cosmetics line? We'll subsidize massive cashback rates on your store to drive explosive sales and card adoption.",
+  },
+  {
+    title: 'Turnkey Infrastructure',
+    desc: 'Live in 14 days. We handle the banking, the compliance, and the gamification. You just invite your fans.',
+  },
+]
 
+function ForCreators() {
   return (
     <section id="for-creators" className="py-24 sm:py-36 bg-teal-50 border-t border-teal-100/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -206,14 +115,12 @@ function ForCreators() {
               <div className="text-slate-400 text-xs mb-1">Creator Dashboard</div>
               <div className="text-white font-bold text-lg mb-6">@YourChannel ✦</div>
 
-              {/* Single prominent revenue number — not a 2×2 grid */}
               <div className="mb-6 pb-6 border-b border-slate-800">
                 <div className="text-slate-400 text-xs mb-2">Passive Income</div>
-                <div className="text-4xl font-black text-teal-400 tracking-tight leading-none">$84,300</div>
+                <div className="text-4xl font-extrabold text-teal-400 tracking-tight leading-none">$84,300</div>
                 <div className="text-teal-400/70 text-xs font-semibold mt-2">↑ +$6,240 this month</div>
               </div>
 
-              {/* Stats as a clean list, not a grid */}
               <div className="space-y-3">
                 {[
                   { label: 'Active Fans', value: '62,400' },
@@ -237,20 +144,19 @@ function ForCreators() {
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6">
               Monetize loyalty, not just eyeballs.
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed mb-10">
-              Your audience already spends thousands every month. It's time you got a piece of it.
+            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+              Your audience already spends thousands every month. It&apos;s time you got a piece of it.
             </p>
 
-            {/* Numbered list — no icon boxes */}
             <div className="space-y-6">
-              {perks.map((perk, i) => (
+              {perksCreators.map((perk, i) => (
                 <div key={perk.title} className="flex gap-4">
                   <span className="text-teal-500 font-bold text-sm tabular-nums mt-0.5 w-5 flex-shrink-0">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
                     <div className="text-slate-900 font-semibold text-base mb-1">{perk.title}</div>
-                    <div className="text-slate-500 text-sm leading-relaxed">{perk.desc}</div>
+                    <div className="text-slate-600 text-sm leading-relaxed">{perk.desc}</div>
                   </div>
                 </div>
               ))}
@@ -263,36 +169,34 @@ function ForCreators() {
   )
 }
 
-function HowItWorks() {
-  const steps = [
-    {
-      num: '01',
-      title: 'Pick Your World',
-      desc: 'Download the Castar app and select your favorite creator. Watch the entire app instantly transform into their unique brand, colors, and community hub.',
-    },
-    {
-      num: '02',
-      title: 'Spend Like Normal',
-      desc: 'Add your free Castar virtual card to Apple Pay or Google Pay. Buy your morning coffee, order pizza, or shop for sneakers — nothing changes.',
-    },
-    {
-      num: '03',
-      title: 'Level Up & Give Back',
-      desc: 'Every swipe earns you XP, unlocks creator rewards, merch, shoutouts, private chats, and automatically funds their chosen charity.',
-    },
-  ]
+const steps = [
+  {
+    num: '01',
+    title: 'Pick Your World',
+    desc: 'Download the Castar app and select your favorite creator. Watch the entire app instantly transform into their unique brand, colors, and community hub.',
+  },
+  {
+    num: '02',
+    title: 'Spend Like Normal',
+    desc: 'Add your free Castar virtual card to Apple Pay or Google Pay. Buy your morning coffee, order pizza, or shop for sneakers — nothing changes.',
+  },
+  {
+    num: '03',
+    title: 'Level Up & Give Back',
+    desc: 'Every swipe earns you XP, unlocks creator rewards, merch, shoutouts, private chats, and automatically funds their chosen charity.',
+  },
+]
 
+function HowItWorks() {
   return (
     <section className="py-20 sm:py-28 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Left-aligned heading — breaks center-everything monotony */}
         <div className="mb-16 lg:mb-20">
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight max-w-xl">
             Spend the same. Earn more. Give back.
           </h2>
         </div>
 
-        {/* Steps: large decorative numbers + dividers, no icon boxes */}
         <div className="grid md:grid-cols-3 md:divide-x md:divide-slate-200">
           {steps.map((step, i) => (
             <div
@@ -305,7 +209,7 @@ function HowItWorks() {
                 i > 0 ? 'border-t border-slate-100 pt-10 md:border-t-0 md:pt-0' : '',
               ].join(' ')}
             >
-              <div className="text-7xl font-black text-slate-100 leading-none mb-6 select-none tabular-nums">
+              <div className="text-7xl font-extrabold text-slate-100 leading-none mb-6 select-none tabular-nums">
                 {step.num}
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-3">{step.title}</h3>
@@ -318,26 +222,26 @@ function HowItWorks() {
   )
 }
 
-function ForFans() {
-  const perks = [
-    {
-      title: 'Support Without Subscriptions',
-      desc: 'Cancel the $5/month paywalls. Support your idol passively just by buying the things you already buy.',
-    },
-    {
-      title: 'Exclusive Discounts',
-      desc: 'Unlock special Card-Linked Offers curated by your creator. Get up to 20% cashback at partner brands.',
-    },
-    {
-      title: 'Climb the Leaderboard',
-      desc: 'Earn XP for every dollar spent. Prove you\'re the #1 fan and unlock exclusive perks, early merch drops, and VIP Discord access.',
-    },
-    {
-      title: 'Dynamic Theming',
-      desc: 'Bored? Switch your active creator anytime. Your card, your rules.',
-    },
-  ]
+const perksFans = [
+  {
+    title: 'Support Without Subscriptions',
+    desc: 'Cancel the $5/month paywalls. Support your idol passively just by buying the things you already buy.',
+  },
+  {
+    title: 'Exclusive Discounts',
+    desc: 'Unlock special Card-Linked Offers curated by your creator. Get up to 20% cashback at partner brands.',
+  },
+  {
+    title: 'Climb the Leaderboard',
+    desc: "Earn XP for every dollar spent. Prove you're the #1 fan and unlock exclusive perks, early merch drops, and VIP Discord access.",
+  },
+  {
+    title: 'Dynamic Theming',
+    desc: 'Bored? Switch your active creator anytime. Your card, your rules.',
+  },
+]
 
+function ForFans() {
   return (
     <section id="for-fans" className="py-20 sm:py-28 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -350,9 +254,8 @@ function ForFans() {
               One free card. Zero extra spending. Everything you love about being a fan — turned into a game you actually win.
             </p>
 
-            {/* 2-col grid of plain feature items — no icon boxes */}
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
-              {perks.map((perk) => (
+              {perksFans.map((perk) => (
                 <div key={perk.title}>
                   <div className="text-slate-900 font-semibold text-base mb-1.5">{perk.title}</div>
                   <div className="text-slate-500 text-sm leading-relaxed">{perk.desc}</div>
@@ -405,118 +308,78 @@ function ForFans() {
   )
 }
 
-function CreatorForm() {
-  const { email, setEmail, status, handleSubmit } = useLoopsForm('creator')
+type CellValue = { check: boolean | null; text: string | null }
 
-  if (status === 'success') {
-    return (
-      <div className="mt-8 bg-teal-50 border border-teal-200 rounded-2xl py-5 px-6 text-center">
-        <div className="flex justify-center mb-2"><Confetti weight="duotone" className="w-8 h-8 text-teal-600" /></div>
-        <div className="text-teal-800 font-bold text-base mb-1">Application received!</div>
-        <div className="text-teal-600 text-sm">We'll be in touch within 48 hours.</div>
-      </div>
-    )
-  }
-
+function Check() {
   return (
-    <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md" onSubmit={handleSubmit}>
-      <input
-        type="email"
-        required
-        placeholder="your@email.com"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 border border-slate-200 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm outline-none transition-colors bg-white"
-      />
-      <button
-        type="submit"
-        disabled={status === 'loading'}
-        className="bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all hover:scale-[1.02] whitespace-nowrap"
-      >
-        {status === 'loading' ? 'Sending...' : 'Apply as a Creator →'}
-      </button>
-      {status === 'error' && (
-        <p className="text-red-500 text-xs mt-2 w-full">
-          Something went wrong — email us at{' '}
-          <a href="mailto:hello@castar.tech" className="underline">hello@castar.tech</a>
-        </p>
-      )}
-    </form>
+    <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mx-auto" aria-hidden="true">
+      <circle cx="10" cy="10" r="10" fill="rgba(20,184,166,0.15)" />
+      <path d="M5.5 10.5l3 3 6-6" stroke="#2dd4bf" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   )
 }
 
+function Cross() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mx-auto" aria-hidden="true">
+      <circle cx="10" cy="10" r="10" fill="rgba(100,116,139,0.12)" />
+      <path d="M7 7l6 6M13 7l-6 6" stroke="#475569" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function Cell({ value }: { value: CellValue }) {
+  if (value.check === false) return <Cross />
+  if (value.check === true) {
+    return (
+      <span className="inline-flex flex-col items-center gap-1">
+        <Check />
+        {value.text && <span className="text-teal-400 text-[11px] font-medium leading-tight">{value.text}</span>}
+      </span>
+    )
+  }
+  return <span className="text-slate-500 text-xs font-medium">{value.text}</span>
+}
+
+const features = [
+  {
+    label: 'Support Creators for Free',
+    neobank: { check: false, text: null },
+    creatorSubs: { check: false, text: null },
+    rewards: { check: false, text: null },
+    castar: { check: true, text: 'Funded by Brands' },
+  },
+  {
+    label: 'Earn Cashback on Spend',
+    neobank: { check: null, text: 'Basic / Limited' },
+    creatorSubs: { check: false, text: null },
+    rewards: { check: true, text: null },
+    castar: { check: true, text: 'Up to 20% CLO' },
+  },
+  {
+    label: 'Gamified XP & Leaderboards',
+    neobank: { check: false, text: null },
+    creatorSubs: { check: false, text: null },
+    rewards: { check: false, text: null },
+    castar: { check: true, text: null },
+  },
+  {
+    label: 'Creator-Branded UI / App',
+    neobank: { check: false, text: null },
+    creatorSubs: { check: true, text: null },
+    rewards: { check: false, text: null },
+    castar: { check: true, text: 'Dynamic Theming' },
+  },
+  {
+    label: 'Automatic Charity Impact',
+    neobank: { check: null, text: 'Optional / Manual' },
+    creatorSubs: { check: false, text: null },
+    rewards: { check: false, text: null },
+    castar: { check: true, text: 'Built-in' },
+  },
+] satisfies { label: string; neobank: CellValue; creatorSubs: CellValue; rewards: CellValue; castar: CellValue }[]
+
 function ComparisonTable() {
-  const features = [
-    {
-      label: 'Support Creators for Free',
-      neobank: { check: false, text: null },
-      creatorSubs: { check: false, text: null },
-      rewards: { check: false, text: null },
-      castar: { check: true, text: 'Funded by Brands' },
-    },
-    {
-      label: 'Earn Cashback on Spend',
-      neobank: { check: null, text: 'Basic / Limited' },
-      creatorSubs: { check: false, text: null },
-      rewards: { check: true, text: null },
-      castar: { check: true, text: 'Up to 20% CLO' },
-    },
-    {
-      label: 'Gamified XP & Leaderboards',
-      neobank: { check: false, text: null },
-      creatorSubs: { check: false, text: null },
-      rewards: { check: false, text: null },
-      castar: { check: true, text: null },
-    },
-    {
-      label: 'Creator-Branded UI / App',
-      neobank: { check: false, text: null },
-      creatorSubs: { check: true, text: null },
-      rewards: { check: false, text: null },
-      castar: { check: true, text: 'Dynamic Theming' },
-    },
-    {
-      label: 'Automatic Charity Impact',
-      neobank: { check: null, text: 'Optional / Manual' },
-      creatorSubs: { check: false, text: null },
-      rewards: { check: false, text: null },
-      castar: { check: true, text: 'Built-in' },
-    },
-  ]
-
-  type CellValue = { check: boolean | null; text: string | null }
-
-  function Check() {
-    return (
-      <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mx-auto" aria-hidden="true">
-        <circle cx="10" cy="10" r="10" fill="rgba(20,184,166,0.15)" />
-        <path d="M5.5 10.5l3 3 6-6" stroke="#2dd4bf" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    )
-  }
-
-  function Cross() {
-    return (
-      <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mx-auto" aria-hidden="true">
-        <circle cx="10" cy="10" r="10" fill="rgba(100,116,139,0.12)" />
-        <path d="M7 7l6 6M13 7l-6 6" stroke="#475569" strokeWidth="1.6" strokeLinecap="round" />
-      </svg>
-    )
-  }
-
-  function Cell({ value }: { value: CellValue }) {
-    if (value.check === false) return <Cross />
-    if (value.check === true) {
-      return (
-        <span className="inline-flex flex-col items-center gap-1">
-          <Check />
-          {value.text && <span className="text-teal-400 text-[11px] font-medium leading-tight">{value.text}</span>}
-        </span>
-      )
-    }
-    return <span className="text-slate-500 text-xs font-medium">{value.text}</span>
-  }
-
   return (
     <section className="py-20 sm:py-28 bg-slate-950 border-t border-slate-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -571,10 +434,11 @@ function ComparisonTable() {
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th className="text-left px-6 py-5 text-slate-500 text-xs font-semibold uppercase tracking-wider bg-slate-900/60 w-[30%] border-b border-slate-800">
+                <th scope="col" className="text-left px-6 py-5 text-slate-500 text-xs font-semibold uppercase tracking-wider bg-slate-900/60 w-[30%] border-b border-slate-800">
                   Feature
                 </th>
                 <th
+                  scope="col"
                   className="px-5 py-5 text-center border-b border-violet-500/40 border-l-2 border-l-violet-500/50"
                   style={{ background: 'linear-gradient(180deg, rgba(109,40,217,0.18) 0%, rgba(109,40,217,0.06) 100%)' }}
                 >
@@ -587,6 +451,7 @@ function ComparisonTable() {
                 ].map((col) => (
                   <th
                     key={col.label}
+                    scope="col"
                     className="px-5 py-5 text-center bg-slate-900/40 border-b border-slate-800 border-l border-slate-800"
                   >
                     <span className="block text-slate-400 text-sm font-semibold">{col.label}</span>
@@ -598,9 +463,9 @@ function ComparisonTable() {
             <tbody>
               {features.map((row, i) => (
                 <tr key={row.label} className={i % 2 === 0 ? 'bg-slate-900/20' : 'bg-transparent'}>
-                  <td className="px-6 py-5 text-slate-300 text-sm font-medium border-t border-slate-800/70">
+                  <th scope="row" className="px-6 py-5 text-left text-slate-300 text-sm font-medium border-t border-slate-800/70">
                     {row.label}
-                  </td>
+                  </th>
                   <td
                     className="px-5 py-5 text-center border-t border-violet-500/20 border-l-2 border-l-violet-500/50"
                     style={{ background: 'linear-gradient(180deg, rgba(109,40,217,0.10) 0%, rgba(109,40,217,0.04) 100%)' }}
@@ -634,14 +499,12 @@ function ImpactEngine() {
   return (
     <section id="impact" className="py-20 sm:py-28 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Left-aligned 2-col layout — heading + feature description side by side */}
         <div className="grid lg:grid-cols-2 gap-16 mb-16 items-start">
           <div>
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight">
               Spend for Good.
             </h2>
           </div>
-          {/* Feature content as prose with divider — no identical white cards */}
           <div className="space-y-0">
             <div className="pb-8">
               <h3 className="text-slate-900 font-bold text-base mb-2">Brand-Funded Impact</h3>
@@ -658,7 +521,6 @@ function ImpactEngine() {
           </div>
         </div>
 
-        {/* Impact visual — full-width teal gradient card */}
         <div className="relative bg-gradient-to-br from-teal-600 to-teal-800 rounded-3xl p-10 md:p-14 overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{
             backgroundImage: 'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
@@ -686,67 +548,14 @@ function ImpactEngine() {
   )
 }
 
-function FinalCTA() {
-  const { email, setEmail, status, handleSubmit } = useLoopsForm('fan')
-
-  return (
-    <section id="waitlist" className="py-20 sm:py-32 bg-slate-950">
-      <div className="absolute inset-x-0" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(20,184,166,0.3), transparent)' }} />
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
-          Ready to change the way you spend?
-        </h2>
-        <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-          Join the waitlist today. The first 10,000 users get a permanent{' '}
-          <span className="text-teal-400 font-semibold">2x XP multiplier</span>.
-        </p>
-
-        {status === 'success' ? (
-          <div className="bg-teal-500/10 border border-teal-500/20 rounded-2xl py-8 px-6">
-            <div className="flex justify-center mb-4"><Confetti weight="duotone" className="w-10 h-10 text-teal-400" /></div>
-            <div className="text-white font-bold text-xl mb-2">You're on the list!</div>
-            <div className="text-slate-400 text-sm">We'll reach out when your early access is ready.</div>
-          </div>
-        ) : (
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              required
-              placeholder="Enter your email..."
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-white/5 border border-white/10 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 text-sm outline-none transition-colors"
-            />
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className="bg-teal-500 hover:bg-teal-400 disabled:opacity-60 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition-all hover:scale-[1.02] whitespace-nowrap shadow-lg shadow-teal-500/25"
-            >
-              {status === 'loading' ? 'Saving...' : 'Claim My Spot'}
-            </button>
-          </form>
-        )}
-
-        {status === 'error' && (
-          <p className="text-red-400 text-xs mt-3">
-            Something went wrong — email us at{' '}
-            <a href="mailto:hello@castar.tech" className="underline">hello@castar.tech</a>
-          </p>
-        )}
-      </div>
-    </section>
-  )
-}
-
 function Footer() {
   return (
     <footer className="border-t border-slate-900 bg-slate-950">
-      {/* Main footer row */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <img src="/logo3.svg" alt="Castar" className="h-7 w-auto" />
+              <img src="/logo3.svg" alt="Castar" width="28" height="28" className="h-7 w-auto" />
               <span className="text-white font-bold text-base">Castar</span>
             </div>
             <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
@@ -761,11 +570,10 @@ function Footer() {
         </div>
       </div>
 
-      {/* Legal bar — visually separated, de-emphasized */}
       <div className="border-t border-slate-900/80 bg-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <small className="text-slate-700 text-xs">© 2026 Castar Labs. All rights reserved.</small>
-          <small className="text-slate-700 text-xs text-center sm:text-right max-w-md leading-relaxed">
+          <small className="text-slate-500 text-xs">© 2026 Castar Labs. All rights reserved.</small>
+          <small className="text-slate-500 text-xs text-center sm:text-right max-w-md leading-relaxed">
             Castar is a financial technology company, not a bank. Card issuing and payment services are provided by our regulated partners.
           </small>
         </div>
@@ -777,6 +585,12 @@ function Footer() {
 export default function Home() {
   return (
     <main className="bg-white min-h-screen">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-teal-500 focus:text-white focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <Nav />
       <Hero />
       <ForCreators />
