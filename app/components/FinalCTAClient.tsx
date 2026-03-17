@@ -40,7 +40,7 @@ export default function FinalCTA() {
 
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5 sm:mb-6">
-          Ready to change the way you spend?
+          Your fans are already spending. Let's make it count.
         </h2>
         <p className="text-teal-100 text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed">
           Join the waitlist today. The first 10,000 users get a permanent{' '}

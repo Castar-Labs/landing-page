@@ -59,7 +59,7 @@ function Hero() {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-500 mb-8 sm:mb-10 max-w-xl leading-relaxed">
-              Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators — without spending an extra dime.
+              Your fans already spend thousands a month. Castar turns every swipe into rewards for them and revenue for you — no extra spend required.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -94,7 +94,7 @@ const perksCreators = [
   },
   {
     title: 'Boost Your D2C Sales',
-    desc: "Have your own merch or cosmetics line? We'll subsidize massive cashback rates on your store to drive explosive sales and card adoption.",
+    desc: "Have your own merch or cosmetics line? We'll subsidize massive cashback rates on your store to drive sales and card adoption.",
   },
   {
     title: 'Turnkey Infrastructure',
@@ -171,7 +171,7 @@ const steps = [
   {
     num: '01',
     title: 'Pick Your World',
-    desc: 'Download the Castar app and select your favorite creator. Watch the entire app instantly transform into their unique brand, colors, and community hub.',
+    desc: 'Download the Castar app and select your favorite creator. The app transforms into their brand, colors, and community hub.',
   },
   {
     num: '02',
@@ -181,7 +181,7 @@ const steps = [
   {
     num: '03',
     title: 'Level Up & Give Back',
-    desc: 'Every swipe earns you XP, unlocks creator rewards, merch, shoutouts, private chats, and automatically funds their chosen charity.',
+    desc: 'Every swipe earns you XP, unlocks creator rewards, merch, shoutouts, and private chats — and funds their chosen charity.',
   },
 ]
 
@@ -235,7 +235,7 @@ const perksFans = [
   },
   {
     title: 'Dynamic Theming',
-    desc: 'Bored? Switch your active creator anytime. Your card, your rules.',
+    desc: 'Follow more than one creator? Switch worlds anytime, no extra cards.',
   },
 ]
 
@@ -386,7 +386,7 @@ function ComparisonTable() {
             Why Castar <span className="text-teal-600">wins.</span>
           </h2>
           <p className="text-slate-500 text-lg leading-relaxed">
-            The only card that combines banking, creator support, and rewards.
+            Everything else solves one problem. Castar solves three.
           </p>
         </div>
 
@@ -513,7 +513,7 @@ function ImpactEngine() {
             <div className="border-t border-slate-200 pt-8">
               <h3 className="text-slate-900 font-bold text-base mb-2">Spare Change Round-Ups</h3>
               <p className="text-slate-500 text-sm leading-relaxed">
-                Buy a coffee for $4.50. We round it up to $5.00 and donate the $0.50 to causes like animal shelters, mental health, or climate action. Watch your impact grow in real-time.
+                Buy a $4.50 coffee, we round up to $5.00. The $0.50 goes to causes your creator champions.
               </p>
             </div>
           </div>
@@ -526,14 +526,13 @@ function ImpactEngine() {
           }} />
           <div className="relative grid md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: PawPrint, cause: 'Animal Shelters', desc: 'Support local shelters and rescue organizations' },
-              { icon: Brain, cause: 'Mental Health', desc: 'Fund awareness campaigns and access to care' },
-              { icon: Leaf, cause: 'Climate Action', desc: 'Back reforestation and clean energy projects' },
+              { icon: PawPrint, cause: 'Animal Shelters' },
+              { icon: Brain, cause: 'Mental Health' },
+              { icon: Leaf, cause: 'Climate Action' },
             ].map((item) => (
               <div key={item.cause}>
-                <div className="flex justify-center mb-3"><item.icon weight="duotone" className="w-10 h-10 text-white/80" /></div>
-                <div className="text-white font-bold text-lg mb-2">{item.cause}</div>
-                <div className="text-white/60 text-sm leading-relaxed">{item.desc}</div>
+                <div className="flex justify-center mb-4"><item.icon weight="duotone" className="w-12 h-12 text-white/80" /></div>
+                <div className="text-white font-bold text-lg">{item.cause}</div>
               </div>
             ))}
           </div>
