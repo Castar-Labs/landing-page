@@ -386,7 +386,7 @@ function ComparisonTable() {
             Why Castar <span className="text-teal-600">wins.</span>
           </h2>
           <p className="text-slate-500 text-lg leading-relaxed">
-            Everything else solves one problem. Castar solves three.
+            Everything else solves one problem. Castar solves them all.
           </p>
         </div>
 
