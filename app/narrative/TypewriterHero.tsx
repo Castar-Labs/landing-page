@@ -98,7 +98,11 @@ export default function TypewriterHero({ signalCount }: { signalCount: number })
         }}
       >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75" />
+          {showAfter && (
+            <span
+              className="absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75 animate-[ping_1s_ease-out_forwards]"
+            />
+          )}
           <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500" />
         </span>
         <span className="text-teal-700 text-xs font-semibold tracking-wide uppercase">{signalCount} signals tracked</span>

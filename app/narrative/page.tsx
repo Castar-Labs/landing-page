@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import TypewriterHero from './TypewriterHero'
+import NarrativeCTA from './NarrativeCTA'
 
 export const metadata: Metadata = {
   title: 'Narrative — Castar',
@@ -8,74 +9,93 @@ export const metadata: Metadata = {
     'The market is moving. Follow the signals shaping the future of creator-powered finance.',
 }
 
-const entries = [
+type SourceKind = 'corporate' | 'press' | 'social'
+
+const entries: { date: string; source: string; kind: SourceKind; title: string; href: string }[] = [
   {
     date: '2026-03-17',
     source: 'Mastercard Investor Relations',
+    kind: 'corporate',
     title: 'Mastercard to Acquire BVNK to Connect On-Chain Payments and Fiat Rails',
     href: 'https://investor.mastercard.com/investor-news/investor-news-details/2026/Mastercard-to-Acquire-BVNK-to-Connect-On-Chain-Payments-and-Fiat-Rails/default.aspx',
   },
   {
     date: '2026-03-10',
     source: '@elonmusk on X',
+    kind: 'social',
     title: 'Elon Musk Announces X Money Early Public Access Launching in April',
     href: 'https://x.com/autismcapital/status/2021716424893612244',
   },
   {
     date: '2026-03-04',
     source: 'Kraken Blog',
+    kind: 'press',
     title: 'Kraken Becomes First Digital Asset Bank to Receive a Federal Reserve Master Account',
     href: 'https://blog.kraken.com/news/federal-reserve-master-account',
   },
   {
     date: '2026-03-03',
     source: 'Visa Investor Relations',
+    kind: 'corporate',
     title: 'Visa and Bridge Expand Collaboration with Plans to Bring Stablecoin-Linked Cards to Over 100 Countries',
     href: 'https://investor.visa.com/news/news-details/2026/Visa-and-Bridge-Expand-Collaboration-with-Plans-to-Bring-Stablecoin-Linked-Cards-to-Over-100-Countries/default.aspx',
   },
   {
     date: '2026-02-27',
     source: 'M0',
+    kind: 'corporate',
     title: 'MoonPay, M0 and PayPal Announce PYUSDx — the Infrastructure Platform for White-Label Stablecoin Deployments',
     href: 'https://www.m0.org/press-releases/moonpay-m0-and-paypal-announce-pyusdx-the-infrastructure-platform-for-pyusd-backed-stablecoins',
   },
   {
     date: '2026-02-25',
     source: 'Tether',
+    kind: 'corporate',
     title: 'Tether Invests in Whop to Power Stablecoin Payments for the Creator Economy',
     href: 'https://tether.io/news/tether-invests-in-whop-one-of-the-fastest-growing-internet-markets-to-power-stablecoin-payments-for-the-next-generation-of-the-internet-economy/',
   },
   {
     date: '2026-02-12',
     source: 'Grab Investor Relations',
+    kind: 'corporate',
     title: 'Grab Signs Agreement to Acquire Stash, Expanding Financial Services Roadmap',
     href: 'https://x.com/oost_marcel/status/2021729512887660919',
   },
   {
     date: '2026-02-09',
     source: '@MrBeast on X',
+    kind: 'social',
     title: 'MrBeast Acquires Neobank Step',
     href: 'https://x.com/MrBeast/status/2020910218360782929',
   },
   {
     date: '2026-01-09',
     source: 'Reuters',
+    kind: 'press',
     title: 'Stablecoin Firm Rain Valued at $1.95 Billion in Latest Fundraise',
     href: 'https://www.reuters.com/technology/stablecoin-firm-rain-valued-195-billion-latest-fundraise-2026-01-09/',
   },
   {
     date: '2025-12-11',
     source: 'Fortune',
+    kind: 'press',
     title: 'YouTube Enables Stablecoin Payments for Creators via PayPal PYUSD',
     href: 'https://fortune.com/2025/12/11/youtube-paypal-google-stablecoin-payouts-pyusd/',
   },
   {
     date: '2025-09-25',
     source: 'Citi GPS',
+    kind: 'corporate',
     title: 'Stablecoins 2030 — Digital Dollars and the Future of Payments',
     href: 'https://www.citigroup.com/global/insights/stablecoins-2030',
   },
 ]
+
+const kindStyles: Record<SourceKind, string> = {
+  corporate: 'text-teal-700 bg-teal-50 border-teal-200',
+  press: 'text-slate-500 bg-slate-100 border-slate-200',
+  social: 'text-sky-600 bg-sky-50 border-sky-200',
+}
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr + 'T00:00:00')
@@ -83,7 +103,7 @@ function formatDate(dateStr: string) {
 }
 
 function daysAgo(dateStr: string) {
-  const now = new Date('2026-03-19T00:00:00')
+  const now = new Date()
   const then = new Date(dateStr + 'T00:00:00')
   const diff = Math.floor((now.getTime() - then.getTime()) / (1000 * 60 * 60 * 24))
   if (diff === 0) return 'Today'
@@ -98,15 +118,6 @@ export default function NarrativePage() {
     <main className="min-h-screen bg-white">
       {/* Header */}
       <header className="relative overflow-hidden border-b border-slate-200">
-        {/* Subtle grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(0,0,0,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.4) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
         {/* Gradient glow */}
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-teal-100/60 rounded-full blur-[120px]" />
 
@@ -128,14 +139,14 @@ export default function NarrativePage() {
       {/* Timeline feed */}
       <section className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-[11px] top-0 bottom-0 w-px bg-gradient-to-b from-teal-400 via-slate-200 to-transparent" />
+          {/* Timeline line — 4px center = where dots center */}
+          <div className="absolute left-[4px] top-0 bottom-0 w-px bg-gradient-to-b from-teal-400 via-slate-200 to-slate-200" />
 
           <ol>
             {entries.map((entry, i) => (
-              <li key={i} className={`relative pl-12 sm:pl-14 ${i > 0 ? 'border-t border-slate-100' : ''}`}>
-                {/* Timeline dot */}
-                <span className="absolute left-[5px] top-6 sm:top-7 flex h-[13px] w-[13px] items-center justify-center">
+              <li key={i} className="relative pl-10 sm:pl-12">
+                {/* Timeline dot — 9px wide, centered at left 4.5px → offset = 0px */}
+                <span className="absolute left-0 top-6 sm:top-7 flex h-[9px] w-[9px] items-center justify-center">
                   <span className={`h-[9px] w-[9px] rounded-full border-2 ${i === 0 ? 'bg-teal-500 border-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.4)]' : 'bg-white border-slate-300'}`} />
                 </span>
 
@@ -143,7 +154,7 @@ export default function NarrativePage() {
                   href={entry.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block rounded-xl hover:bg-slate-50 active:scale-[0.98] px-4 py-5 sm:px-5 sm:py-6 -mx-1 transition-all duration-200"
+                  className="group block rounded-xl hover:bg-slate-50 active:scale-[0.98] px-4 py-5 sm:px-5 sm:py-6 transition-all duration-200"
                 >
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
                     <time className="text-xs font-semibold text-slate-400 tabular-nums">
@@ -151,7 +162,7 @@ export default function NarrativePage() {
                     </time>
                     <span className="text-slate-300 text-xs hidden sm:inline">—</span>
                     <span className="text-xs text-slate-400 hidden sm:inline">{daysAgo(entry.date)}</span>
-                    <span className="text-[11px] text-slate-500 font-medium bg-slate-100 border border-slate-200 rounded px-2 py-0.5">
+                    <span className={`text-[11px] font-medium border rounded px-2 py-0.5 ${kindStyles[entry.kind]}`}>
                       {entry.source}
                     </span>
                   </div>
@@ -165,6 +176,8 @@ export default function NarrativePage() {
 
         </div>
       </section>
+
+      <NarrativeCTA />
 
       {/* Minimal footer */}
       <footer className="border-t border-slate-200 bg-slate-50">
