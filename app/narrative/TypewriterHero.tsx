@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 
-const TITLE_PLAIN = 'Why this is the perfect time to build '
+const TITLE_PLAIN = 'Why is this the perfect time to build '
 const TITLE_ACCENT = 'Stablecoin Neobanks'
 const TITLE_END = '?'
 const FULL_TEXT = TITLE_PLAIN + TITLE_ACCENT + TITLE_END
