@@ -503,19 +503,11 @@ function ImpactEngine() {
               Spend for Good.
             </h2>
           </div>
-          <div className="space-y-0">
-            <div className="pb-8">
-              <h3 className="text-slate-900 font-bold text-base mb-2">Brand-Funded Impact</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
-                A percentage of our brand commissions goes directly to a charity chosen by your creator. You spend nothing extra — the brands pay.
-              </p>
-            </div>
-            <div className="border-t border-slate-200 pt-8">
-              <h3 className="text-slate-900 font-bold text-base mb-2">Spare Change Round-Ups</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
-                Buy a $4.50 coffee, we round up to $5.00. The $0.50 goes to causes your creator champions.
-              </p>
-            </div>
+          <div>
+            <h3 className="text-slate-900 font-bold text-base mb-2">Brand-Funded Impact</h3>
+            <p className="text-slate-500 text-sm leading-relaxed">
+              A percentage of our brand commissions goes directly to a charity chosen by your creator. You spend nothing extra — the brands pay.
+            </p>
           </div>
         </div>
 
