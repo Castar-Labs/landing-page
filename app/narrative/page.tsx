@@ -13,6 +13,13 @@ type SourceKind = 'corporate' | 'press' | 'social'
 
 const entries: { date: string; source: string; kind: SourceKind; title: string; href: string }[] = [
   {
+    date: '2026-03-18',
+    source: 'Fortune',
+    kind: 'press',
+    title: 'Stripe Launches Tempo — a Stablecoin Blockchain Built for AI-Era Payments',
+    href: 'https://fortune.com/2026/03/18/stripe-tempo-paradigm-mpp-ai-payments-protocol/',
+  },
+  {
     date: '2026-03-17',
     source: 'Mastercard Investor Relations',
     kind: 'corporate',
