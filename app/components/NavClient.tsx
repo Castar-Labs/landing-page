@@ -2,10 +2,14 @@
 
 import { useState } from 'react'
 
-const links = [
+const pageLinks = [
   { href: '#for-creators', label: 'For Creators' },
   { href: '#for-fans', label: 'For Fans' },
-  { href: '#impact', label: 'Impact' },
+  { href: '#impact', label: 'For Charities' },
+]
+
+const externalLinks = [
+  { href: '/narrative', label: 'Narrative' },
 ]
 
 export default function Nav() {
@@ -22,7 +26,7 @@ export default function Nav() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
-            {links.map((l) => (
+            {pageLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
@@ -31,6 +35,27 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
+            <div className="w-px h-4 bg-slate-200" />
+            {externalLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="https://www.linkedin.com/company/castartech"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-slate-400 hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -60,7 +85,7 @@ export default function Nav() {
       {open && (
         <div id="mobile-menu" className="md:hidden border-t border-slate-200 bg-white">
           <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
-            {links.map((l) => (
+            {pageLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
@@ -70,6 +95,29 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
+            <div className="h-px bg-slate-200 my-1" />
+            {externalLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-slate-700 hover:text-slate-900 text-base font-medium py-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="https://www.linkedin.com/company/castartech"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="text-slate-700 hover:text-slate-900 text-base font-medium py-2.5 transition-colors flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
           </div>
         </div>
       )}
