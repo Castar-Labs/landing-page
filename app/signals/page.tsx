@@ -7,7 +7,12 @@ import { entries, type Tag } from './data'
 export const metadata: Metadata = {
   title: 'Signals — Castar',
   description:
-    'The market is moving. Follow the signals shaping the future of creator-powered finance.',
+    'Regulation is here. Consumers want stablecoin wallets. Payment giants are going all in. Track the signals.',
+  openGraph: {
+    title: 'Signals — Castar',
+    description:
+      'Regulation is here. Consumers want stablecoin wallets. Payment giants are going all in. Track the signals.',
+  },
 }
 
 const tagStyles: Record<Tag, { label: string; classes: string; dot: string }> = {
