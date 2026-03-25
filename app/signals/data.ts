@@ -12,6 +12,14 @@ export type SignalEntry = {
 
 export const entries: SignalEntry[] = [
   {
+    date: '2026-03-10',
+    source: 'Fintech News Singapore',
+    kind: 'press',
+    tag: 'stablecoins',
+    title: 'KAST Raises $80M Series A to Expand Stablecoin Banking Across LatAm, North America, and the Middle East',
+    href: 'https://fintechnews.sg/127557/digitalassets/kast-series-a-stablecoin-expansion/',
+  },
+  {
     date: '2026-03-11',
     source: 'Latham & Watkins',
     kind: 'corporate',
@@ -68,6 +76,14 @@ export const entries: SignalEntry[] = [
     href: 'https://x.com/autismcapital/status/2021716424893612244',
   },
   {
+    date: '2026-03-03',
+    source: 'Mastercard',
+    kind: 'corporate',
+    tag: 'stablecoins',
+    title: 'SoFi and Mastercard Partner to Enable SoFiUSD Settlement Across Mastercard\'s Global Payments Network',
+    href: 'https://www.mastercard.com/us/en/news-and-trends/press/2026/march/sofi-and-mastercard-partner-to-enable-sofiusd-settlement-across-.html',
+  },
+  {
     date: '2026-03-04',
     source: 'Kraken Blog',
     kind: 'press',
@@ -82,6 +98,14 @@ export const entries: SignalEntry[] = [
     tag: 'stablecoins',
     title: 'Visa and Bridge Expand Collaboration with Plans to Bring Stablecoin-Linked Cards to Over 100 Countries',
     href: 'https://investor.visa.com/news/news-details/2026/Visa-and-Bridge-Expand-Collaboration-with-Plans-to-Bring-Stablecoin-Linked-Cards-to-Over-100-Countries/default.aspx',
+  },
+  {
+    date: '2026-02-19',
+    source: 'SEC',
+    kind: 'corporate',
+    tag: 'stablecoins',
+    title: 'SEC Issues 2% Capital Haircut Guidance for Broker-Dealer Stablecoin Holdings — Unlocking Wall Street Adoption',
+    href: 'https://www.sec.gov/newsroom/speeches-statements/peirce-stablecoin-021926-cutting-two-would-do',
   },
   {
     date: '2026-02-27',
@@ -146,6 +170,14 @@ export const entries: SignalEntry[] = [
     tag: 'stablecoins',
     title: 'Stablecoin Firm Rain Valued at $1.95 Billion in Latest Fundraise',
     href: 'https://www.reuters.com/technology/stablecoin-firm-rain-valued-195-billion-latest-fundraise-2026-01-09/',
+  },
+  {
+    date: '2025-11-25',
+    source: 'Ledger Insights',
+    kind: 'press',
+    tag: 'stablecoins',
+    title: 'Klarna to Launch KlarnaUSD Stablecoin on Stripe\'s Tempo Blockchain — 114M Customers, $112B GMV',
+    href: 'https://www.ledgerinsights.com/bnpl-firm-and-bank-klarna-to-launch-dollar-stablecoin-in-2026/',
   },
   {
     date: '2025-12-11',
