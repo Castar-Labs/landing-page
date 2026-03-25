@@ -12,6 +12,30 @@ export type SignalEntry = {
 
 export const entries: SignalEntry[] = [
   {
+    date: '2026-03-11',
+    source: 'Latham & Watkins',
+    kind: 'corporate',
+    tag: 'stablecoins',
+    title: 'OCC Issues Proposed Rulemaking to Implement the GENIUS Act — Federal Stablecoin Charter Takes Shape',
+    href: 'https://www.lw.com/en/insights/occ-issues-proposal-to-implement-the-genius-act',
+  },
+  {
+    date: '2026-03-16',
+    source: 'dtcpay Blog',
+    kind: 'corporate',
+    tag: 'stablecoins',
+    title: 'dtcpay Raises $10M Series A Led by Vertex Ventures to Scale Stablecoin Payment Infrastructure Globally',
+    href: 'https://dtcpay.com/zh-CN/blog/dtcpay-raises-us10m-in-series-a-led-by-vertex-ventures-sea--india',
+  },
+  {
+    date: '2025-12-02',
+    source: 'CaixaBank',
+    kind: 'corporate',
+    tag: 'stablecoins',
+    title: 'Qivalis — 10-Bank European Consortium Including BNP Paribas and UniCredit — to Launch MiCA-Compliant Euro Stablecoin in H2 2026',
+    href: 'https://www.caixabank.com/en/headlines/news/qivalis-joint-venture-of-a-european-banking-consortium-to-launch-euro-stablecoin-in-the-second-half-of-2026',
+  },
+  {
     date: '2026-03-24',
     source: '@pudgypenguins on X',
     kind: 'social',
