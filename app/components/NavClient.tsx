@@ -100,7 +100,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-slate-200 bg-white">
+        <div id="mobile-menu" className="md:hidden border-t border-slate-200 bg-white shadow-[0_16px_40px_-4px_rgba(0,0,0,0.25)]">
           <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
             {pageLinks.map((l) => (
               <a
