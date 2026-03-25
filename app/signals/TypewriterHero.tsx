@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 
 const TITLE_PLAIN = 'Why is this the perfect time to build '
-const TITLE_ACCENT = 'Stablecoin Neobanks'
+const TITLE_ACCENT = 'Stablecoin Neobank'
 const TITLE_END = '?'
 const FULL_TEXT = TITLE_PLAIN + TITLE_ACCENT + TITLE_END
 const ACCENT_START = TITLE_PLAIN.length
 const ACCENT_END = ACCENT_START + TITLE_ACCENT.length
 const CHAR_DELAY = 20
-const CURSOR_LINGER = 800
-const FADE_DURATION = 1000
+const CURSOR_LINGER = 400
+const FADE_DURATION = 600
 
 export default function TypewriterHero({ signalCount }: { signalCount: number }) {
   const plainRef = useRef<HTMLSpanElement>(null)
@@ -24,7 +24,7 @@ export default function TypewriterHero({ signalCount }: { signalCount: number })
   const finish = useCallback(() => {
     if (cursorRef.current) cursorRef.current.style.display = 'none'
     setDone(true)
-    setTimeout(() => setShowAfter(true), 200)
+    setShowAfter(true)
   }, [])
 
   useEffect(() => {
@@ -112,14 +112,14 @@ export default function TypewriterHero({ signalCount }: { signalCount: number })
           transition: `opacity ${FADE_DURATION}ms ease`,
         }}
       >
-        Every major player is racing to connect stablecoins with consumer finance. Here&apos;s the proof.
+        Regulation is finally here. Consumers want stablecoin wallets. Payment giants are going all in. The window is open.
       </p>
 
       <div
         className="inline-flex items-center gap-2 bg-teal-50 border border-teal-200 rounded-full px-4 py-1.5"
         style={{
           opacity: showAfter ? 1 : 0,
-          transition: `opacity ${FADE_DURATION}ms ease 300ms`,
+          transition: `opacity ${FADE_DURATION}ms ease 100ms`,
         }}
       >
         <span className="relative flex h-2 w-2">

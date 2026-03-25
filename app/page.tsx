@@ -9,6 +9,7 @@ import {
   Leaf,
 } from '@phosphor-icons/react/dist/ssr'
 import Nav from './components/NavClient'
+import { SIGNAL_COUNT } from './signals/data'
 import CreatorForm from './components/CreatorFormClient'
 import FinalCTA from './components/FinalCTAClient'
 
@@ -611,7 +612,14 @@ function Footer() {
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-3">
             <a href="#for-creators" className="text-slate-500 hover:text-teal-600 text-sm transition-colors">Creator Application</a>
-            <a href="/signal" className="text-slate-500 hover:text-teal-600 text-sm transition-colors">Signal</a>
+            <a href="/signals" className="inline-flex items-center gap-2 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-full px-3 py-1 text-teal-700 text-xs font-semibold tracking-wide uppercase transition-colors">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75 animate-ping" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-teal-500" />
+              </span>
+              Signals
+              <span className="bg-teal-500 text-white text-[10px] font-bold rounded-full min-w-[1.25rem] h-5 px-1.5 inline-flex items-center justify-center">{SIGNAL_COUNT}</span>
+            </a>
             <a href="mailto:hello@castar.tech" className="text-slate-500 hover:text-teal-600 text-sm transition-colors">hello@castar.tech</a>
             <a href="https://www.linkedin.com/company/castartech" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-teal-600 text-sm transition-colors">LinkedIn</a>
           </div>

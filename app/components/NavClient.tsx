@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { SIGNAL_COUNT } from '../signals/data'
 
 const pageLinks = [
   { href: '#for-creators', label: 'For Creators' },
@@ -9,7 +10,7 @@ const pageLinks = [
 ]
 
 const externalLinks = [
-  { href: '/signal', label: 'Signal' },
+  { href: '/signals', label: 'Signals', count: SIGNAL_COUNT },
 ]
 
 export default function Nav() {
@@ -40,9 +41,14 @@ export default function Nav() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
+                className="inline-flex items-center gap-2 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-full px-3 py-1 text-teal-700 text-xs font-semibold tracking-wide uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-teal-500" />
+                </span>
                 {l.label}
+                <span className="bg-teal-500 text-white text-[10px] font-bold rounded-full min-w-[1.25rem] h-5 px-1.5 inline-flex items-center justify-center">{l.count}</span>
               </a>
             ))}
             <a
@@ -112,9 +118,14 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-slate-700 hover:text-slate-900 text-base font-medium py-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
+                className="inline-flex items-center gap-2 self-start bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-full px-3 py-1.5 text-teal-700 text-xs font-semibold tracking-wide uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-teal-500" />
+                </span>
                 {l.label}
+                <span className="bg-teal-500 text-white text-[10px] font-bold rounded-full min-w-[1.25rem] h-5 px-1.5 inline-flex items-center justify-center">{l.count}</span>
               </a>
             ))}
             <a
