@@ -9,7 +9,7 @@ const pageLinks = [
 ]
 
 const externalLinks = [
-  { href: '/narrative', label: 'Narrative' },
+  { href: '/signal', label: 'Signal' },
 ]
 
 export default function Nav() {
