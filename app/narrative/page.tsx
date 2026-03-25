@@ -13,6 +13,13 @@ type SourceKind = 'corporate' | 'press' | 'social'
 
 const entries: { date: string; source: string; kind: SourceKind; title: string; href: string }[] = [
   {
+    date: '2026-03-24',
+    source: '@pudgypenguins on X',
+    kind: 'social',
+    title: 'Pudgy Penguins Launches Pengu Visa Card Globally Across 170+ Countries via KAST',
+    href: 'https://x.com/pudgypenguins/status/2036527343464825256',
+  },
+  {
     date: '2026-03-18',
     source: 'Fortune',
     kind: 'press',
@@ -55,11 +62,25 @@ const entries: { date: string; source: string; kind: SourceKind; title: string; 
     href: 'https://www.m0.org/press-releases/moonpay-m0-and-paypal-announce-pyusdx-the-infrastructure-platform-for-pyusd-backed-stablecoins',
   },
   {
+    date: '2026-02-26',
+    source: '@MetaMask on X',
+    kind: 'social',
+    title: 'MetaMask Launches Mastercard-Backed Crypto Card in the United States',
+    href: 'https://x.com/MetaMask/status/2027022499683410167',
+  },
+  {
     date: '2026-02-25',
     source: 'Tether',
     kind: 'corporate',
     title: 'Tether Invests in Whop to Power Stablecoin Payments for the Creator Economy',
     href: 'https://tether.io/news/tether-invests-in-whop-one-of-the-fastest-growing-internet-markets-to-power-stablecoin-payments-for-the-next-generation-of-the-internet-economy/',
+  },
+  {
+    date: '2026-02-11',
+    source: 'Pantera Capital',
+    kind: 'corporate',
+    title: 'Building Permissionless Neobanks — How Stablecoins Are Rebuilding the Financial Backend',
+    href: 'https://panteracapital.com/building-permissionless-neobanks/',
   },
   {
     date: '2026-02-12',
@@ -96,6 +117,13 @@ const entries: { date: string; source: string; kind: SourceKind; title: string; 
     title: 'Stablecoins 2030 — Digital Dollars and the Future of Payments',
     href: 'https://www.citigroup.com/global/insights/stablecoins-2030',
   },
+  {
+    date: '2025-08-22',
+    source: 'Trend Hunter',
+    kind: 'press',
+    title: 'Kanye West Debuts YZY Card — a Crypto Debit Card Under the YZY Money Ecosystem',
+    href: 'https://www.trendhunter.com/trends/yzy-card',
+  },
 ]
 
 const kindStyles: Record<SourceKind, string> = {
@@ -103,6 +131,10 @@ const kindStyles: Record<SourceKind, string> = {
   press: 'text-slate-500 bg-slate-100 border-slate-200',
   social: 'text-sky-600 bg-sky-50 border-sky-200',
 }
+
+const sortedEntries = [...entries].sort(
+  (a, b) => new Date(b.date + 'T00:00:00').getTime() - new Date(a.date + 'T00:00:00').getTime()
+)
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr + 'T00:00:00')
@@ -139,7 +171,7 @@ export default function NarrativePage() {
             Back to Castar
           </Link>
 
-          <TypewriterHero signalCount={entries.length} />
+          <TypewriterHero signalCount={sortedEntries.length} />
         </div>
       </header>
 
@@ -150,7 +182,7 @@ export default function NarrativePage() {
           <div className="absolute left-[4px] top-0 bottom-0 w-px bg-gradient-to-b from-teal-400 via-slate-200 to-slate-200" />
 
           <ol>
-            {entries.map((entry, i) => (
+            {sortedEntries.map((entry, i) => (
               <li key={i} className="relative pl-10 sm:pl-12">
                 {/* Timeline dot — 9px wide, centered at left 4.5px → offset = 0px */}
                 <span className="absolute left-0 top-6 sm:top-7 flex h-[9px] w-[9px] items-center justify-center">
