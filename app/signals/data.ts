@@ -12,6 +12,14 @@ export type SignalEntry = {
 
 export const entries: SignalEntry[] = [
   {
+    date: '2026-03-17',
+    source: 'PayPal Newsroom',
+    kind: 'corporate',
+    tag: 'stablecoins',
+    title: 'PayPal Brings PYUSD to 70 Markets — Enabling Instant Cross-Border Transfers and Local Currency Conversion Globally',
+    href: 'https://newsroom.paypal-corp.com/2026-03-17-PAYPAL-BRINGS-PAYPAL-USD-TO-USERS-ACROSS-70-MARKETS',
+  },
+  {
     date: '2026-03-10',
     source: 'Fintech News Singapore',
     kind: 'press',
