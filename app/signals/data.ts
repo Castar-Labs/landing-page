@@ -52,6 +52,14 @@ export const entries: SignalEntry[] = [
     href: 'https://www.caixabank.com/en/headlines/news/qivalis-joint-venture-of-a-european-banking-consortium-to-launch-euro-stablecoin-in-the-second-half-of-2026',
   },
   {
+    date: '2026-03-25',
+    source: '@whop on X',
+    kind: 'social',
+    tag: 'entertainment finance',
+    title: 'Whop Launches Whop Treasury — 6% Yield on All Money Earned on the Platform',
+    href: 'https://x.com/whop/status/2036820405965447537',
+  },
+  {
     date: '2026-03-24',
     source: '@pudgypenguins on X',
     kind: 'social',
