@@ -1,0 +1,11 @@
+[phases.install]
+  dependsOn = ["setup"]
+  cmds = ["npm ci"]
+  cacheDirectories = ["/root/.npm", "node_modules"]
+
+  [phases.build]
+  cmds = ["npm run build"]
+  cacheDirectories = [".next/cache"]
+
+  [start]
+  cmd = "npm start"
