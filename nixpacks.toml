@@ -1,10 +1,9 @@
 [phases.install]
-  cmds = ["npm install --include=dev"]
-  cacheDirectories = ["/root/.npm"]
+cmds = ["npm install --include=dev"]
+cacheDirectories = ["/root/.npm"]
 
-  [phases.build]
-  cmds = ["npm run build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public"]
-  cacheDirectories = [".next/cache"]
+[phases.build]
+cacheDirectories = [".next/cache"]
 
-  [start]
-  cmd = "node .next/standalone/server.js"
+[start]
+cmd = "npm start"
