@@ -12,6 +12,14 @@ export type SignalEntry = {
 
 export const entries: SignalEntry[] = [
   {
+    date: '2026-04-24',
+    source: 'The Guardian',
+    kind: 'press',
+    tag: 'entertainment finance',
+    title: 'TikTok and Visa Launch UK Creator Debit Card to Speed Live Payouts',
+    href: 'https://www.theguardian.com/technology/2026/apr/24/tiktok-visa-debit-card-uk-creator-card-payouts-live-payments',
+  },
+  {
     date: '2026-03-17',
     source: 'PayPal Newsroom',
     kind: 'corporate',
