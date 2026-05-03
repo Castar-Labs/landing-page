@@ -19,3 +19,209 @@ body {
   0% { transform: scale(1); opacity: 0.75; }
   75%, 100% { transform: scale(2.5); opacity: 0; }
 }
+
+.hero-card-stage {
+  --hero-card-radius: 1.35rem;
+  position: relative;
+  display: flex;
+  min-height: clamp(17rem, 38vw, 31rem);
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  perspective: 1400px;
+}
+
+.hero-card-stage::after {
+  position: absolute;
+  right: 8%;
+  bottom: 7%;
+  z-index: -2;
+  width: min(78%, 34rem);
+  height: 28%;
+  content: "";
+  background: radial-gradient(ellipse at center, rgba(13, 148, 136, 0.34), rgba(15, 23, 42, 0.08) 46%, transparent 72%);
+  filter: blur(18px);
+  transform: rotate(-4deg);
+}
+
+.hero-card-tilt {
+  position: relative;
+  width: clamp(17.5rem, 36vw, 28rem);
+  aspect-ratio: 1.586 / 1;
+  transform: rotateY(-18deg) rotateZ(-3deg);
+  transform-style: preserve-3d;
+  animation: castar-card-float 5.8s ease-in-out infinite;
+}
+
+.hero-card-rotor {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: castar-card-long-axis-spin 7.4s linear infinite;
+}
+
+.hero-card-rotor::before {
+  position: absolute;
+  inset: 9% 4%;
+  content: "";
+  background: rgba(15, 23, 42, 0.24);
+  border-radius: var(--hero-card-radius);
+  filter: blur(22px);
+  transform: translate3d(7%, 22%, -5rem) scale(0.92);
+}
+
+.castar-card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: var(--hero-card-radius);
+  backface-visibility: hidden;
+  background: #062421;
+  box-shadow:
+    0 2.2rem 4.5rem rgba(15, 23, 42, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -22px 44px rgba(2, 6, 23, 0.22);
+  transform-style: preserve-3d;
+}
+
+.castar-card-front {
+  transform: translateZ(2px);
+}
+
+.castar-card-back {
+  flex-direction: column;
+  color: white;
+  transform: rotateX(180deg) translateZ(2px);
+  background:
+    linear-gradient(135deg, rgba(9, 64, 60, 0.95), rgba(2, 6, 23, 0.98)),
+    radial-gradient(circle at 72% 18%, rgba(20, 184, 166, 0.30), transparent 34%);
+}
+
+.castar-card-canvas,
+.castar-card-fallback,
+.castar-card-grain,
+.castar-card-back-shine {
+  position: absolute;
+  inset: 0;
+}
+
+.castar-card-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.castar-card-canvas-hidden {
+  display: none;
+}
+
+.castar-card-fallback {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(250, 204, 21, 0.30), transparent 24%),
+    radial-gradient(circle at 78% 24%, rgba(45, 212, 191, 0.36), transparent 31%),
+    linear-gradient(135deg, #073633 0%, #0f766e 38%, #2dd4bf 58%, #d9b647 76%, #082f2c 100%);
+}
+
+.castar-card-grain {
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 26%, rgba(255, 255, 255, 0.26) 34%, transparent 43%),
+    repeating-linear-gradient(100deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 7px);
+  mix-blend-mode: soft-light;
+  opacity: 0.62;
+  transform: translateX(-16%);
+  animation: castar-card-sheen 2.75s linear infinite;
+}
+
+.castar-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: clamp(1.1rem, 2.3vw, 1.55rem);
+  color: white;
+  text-shadow: 0 1px 18px rgba(2, 6, 23, 0.22);
+}
+
+.castar-card-mark {
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.castar-card-chip {
+  display: grid;
+  width: clamp(2.65rem, 5vw, 3.2rem);
+  height: clamp(2rem, 3.8vw, 2.35rem);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: auto;
+  margin-bottom: clamp(1.2rem, 2.5vw, 1.6rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 0.55rem;
+  background: linear-gradient(135deg, rgba(255, 240, 190, 0.76), rgba(187, 132, 48, 0.56));
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.22);
+}
+
+.castar-card-chip span {
+  border: 1px solid rgba(80, 52, 18, 0.16);
+}
+
+.castar-card-back-shine {
+  background:
+    linear-gradient(118deg, transparent 18%, rgba(255, 255, 255, 0.22) 36%, transparent 54%),
+    radial-gradient(circle at 82% 12%, rgba(45, 212, 191, 0.30), transparent 30%);
+  opacity: 0.62;
+  animation: castar-card-sheen 3.4s linear infinite;
+}
+
+@keyframes castar-card-long-axis-spin {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(360deg); }
+}
+
+@keyframes castar-card-float {
+  0%, 100% { transform: translate3d(0, -0.25rem, 0) rotateY(-18deg) rotateZ(-3deg); }
+  50% { transform: translate3d(0, 0.35rem, 0) rotateY(-14deg) rotateZ(-2deg); }
+}
+
+@keyframes castar-card-sheen {
+  from { transform: translateX(-78%); }
+  to { transform: translateX(78%); }
+}
+
+@media (max-width: 640px) {
+  .hero-card-stage {
+    min-height: 16.5rem;
+  }
+
+  .hero-card-tilt {
+    width: min(84vw, 21rem);
+    transform: rotateY(-12deg) rotateZ(-2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-card-tilt,
+  .hero-card-rotor,
+  .castar-card-grain,
+  .castar-card-back-shine {
+    animation: none;
+  }
+
+  .hero-card-tilt {
+    transform: rotateY(-14deg) rotateZ(-2deg);
+  }
+
+  .hero-card-rotor {
+    transform: rotateX(18deg);
+  }
+}

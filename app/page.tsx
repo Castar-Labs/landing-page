@@ -12,44 +12,16 @@ import Nav from './components/NavClient'
 import { SIGNAL_COUNT } from './signals/data'
 import CreatorForm from './components/CreatorFormClient'
 import FinalCTA from './components/FinalCTAClient'
-
-function VirtualCard({ gradient, avatar }: { gradient: string; avatar: React.ReactNode }) {
-  return (
-    <div
-      className={`w-64 sm:w-72 h-40 sm:h-44 rounded-2xl p-5 sm:p-6 shadow-2xl flex flex-col justify-between ${gradient}`}
-      style={{ fontFamily: 'monospace' }}
-    >
-      <div className="flex items-center justify-between">
-        <span className="text-white/80 text-xs font-semibold tracking-widest uppercase">Castar</span>
-        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg">{avatar}</div>
-      </div>
-      <div>
-        <div className="text-white/60 text-xs mb-1">•••• •••• •••• 4821</div>
-        <div className="text-white font-semibold text-sm">Fan Member</div>
-      </div>
-    </div>
-  )
-}
+import HolographicHeroCard from './components/HolographicHeroCard'
 
 function Hero() {
   return (
     <section id="main-content" className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-b from-teal-50/60 to-white">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:py-24 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Stacked rotating cards — first on mobile */}
-          <div aria-hidden="true" className="relative flex items-center justify-center h-44 sm:h-56 lg:h-80 order-first lg:order-last">
-            <div className="absolute" style={{ transform: 'rotate(-8deg) translateY(16px) translateX(-8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-violet-600 to-pink-600" avatar={<MusicNote weight="duotone" className="w-5 h-5 text-white" />} />
-            </div>
-            <div className="absolute" style={{ transform: 'rotate(4deg) translateY(-8px) translateX(8px)' }}>
-              <VirtualCard gradient="bg-gradient-to-br from-orange-500 to-rose-600" avatar={<GameController weight="duotone" className="w-5 h-5 text-white" />} />
-            </div>
-            <div className="relative">
-              <VirtualCard gradient="bg-gradient-to-br from-teal-500 to-cyan-600" avatar={<img src="/logo3.svg" width="20" height="20" className="w-5 h-5 brightness-0 invert" alt="Castar" />} />
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
-                Active — 2,450 XP
-              </div>
-            </div>
+          {/* WebGL shader card — first on mobile */}
+          <div className="relative order-first lg:order-last">
+            <HolographicHeroCard />
           </div>
 
           {/* Text content */}
