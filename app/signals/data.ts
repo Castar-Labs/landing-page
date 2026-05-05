@@ -12,6 +12,14 @@ export type SignalEntry = {
 
 export const entries: SignalEntry[] = [
   {
+    date: '2026-04-29',
+    source: 'Bridge on LinkedIn',
+    kind: 'social',
+    tag: 'stablecoins',
+    title: 'Bridge Cards Now Integrated with Stripe Issuing — Stablecoin Cards Live in 30 Countries, Expanding to 100+ by End of 2026',
+    href: 'https://www.linkedin.com/posts/bridge-cards-are-now-integrated-with-stripe-ugcPost-7455325473166987264-tuo7',
+  },
+  {
     date: '2026-04-24',
     source: 'The Guardian',
     kind: 'press',
