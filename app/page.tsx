@@ -212,11 +212,10 @@ function TrustBar() {
 function Stats() {
   const stats: { value: string; label: string; source: string }[] = [
     { value: '$25–30B', label: 'xStocks cumulative volume', source: 'kraken.com · cryptotimes.io' },
-    { value: '94%', label: 'Alpaca share of tokenized US stocks', source: 'alpaca.markets/blog' },
-    { value: '$480M+', label: 'Alpaca tokenized AUC', source: 'alpaca.markets/blog' },
+    { value: '94%', label: 'Alpaca-reported tokenized US equities + ETFs share', source: 'alpaca.markets/blog' },
     { value: '100K+', label: 'Unique on-chain xStock holders', source: 'cryptotimes.io · Apr 2026' },
     { value: '100+', label: 'xStock tokens · target 500 by EOY', source: 'kraken.com/blog' },
-    { value: '6', label: 'Chains: SOL · ETH · Mantle · TON · Ink · BNB', source: 'xstocks.com' },
+    { value: '5', label: 'Chains: Solana · Ethereum · Mantle · TON · Ink', source: 'xstocks.com' },
     { value: '$20B/yr', label: 'Kabunushi yutai precedent in Japan', source: 'shareholder perks proven loop' },
     { value: '$1.15B', label: 'Alpaca Series D valuation · Jan 2026', source: 'theblock.co' },
   ]
@@ -227,14 +226,14 @@ function Stats() {
         <Reveal>
           <p className="sqd-eyebrow mb-4">Why now</p>
           <h2 className="text-display-2 font-extrabold text-balance text-gradient-heading max-w-3xl">
-            Tokenized stocks tripled in six months.
+            Tokenized stocks tripled in 12 months.
             <span className="text-white/45"> The utility layer doesn&apos;t exist yet.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/65">
             Today:{' '}
             <strong className="text-white">$25–30B+ cumulative volume</strong>,{' '}
-            <strong className="text-white">100K+ on-chain holders</strong>,{' '}
-            <strong className="text-white">$480M+ AUC on Alpaca alone</strong>. Every actor is in place. Nobody owns the network that binds them.
+            <strong className="text-white">100K+ on-chain holders</strong>, and{' '}
+            <strong className="text-white">live multi-chain rails</strong>. Every actor is in place. Nobody owns the network that binds them.
           </p>
         </Reveal>
 
@@ -535,7 +534,7 @@ function CategoryMap() {
     { role: 'Custody (TradFi)', who: 'Alpaca · InCore · Maerki Baumann', status: 'filled' },
     { role: 'Exchanges', who: 'Kraken · Bybit · Gate · KuCoin', status: 'filled' },
     { role: 'Wallets', who: 'Phantom · Solflare · Trust', status: 'filled' },
-    { role: 'Chains', who: 'Solana · Mantle · TON · Ink · BNB · ETH', status: 'filled' },
+    { role: 'Chains', who: 'Solana · Ethereum · Mantle · TON · Ink', status: 'filled' },
     { role: 'Oracle', who: 'Chainlink', status: 'filled' },
     { role: 'On-ramp', who: 'Alchemy Pay', status: 'filled' },
     { role: 'DeFi (DEX/lending)', who: 'Raydium · Jupiter · Kamino', status: 'filled' },
@@ -732,7 +731,7 @@ function Timeline() {
     { when: 'Jun 2025', text: 'xStocks launches with 60 tokens on Solana. Backed/Kraken Alliance formed.' },
     { when: 'Oct 2025', text: 'Alpaca ITN launches at TOKEN2049 with Backed, Ondo, Dinari, DRW.' },
     { when: 'Dec 2025', text: 'Kraken acquires Backed. Alliance now Kraken-controlled.' },
-    { when: 'Jan 2026', text: 'Alpaca raises $150M Series D at $1.15B. 94% market share confirmed.' },
+    { when: 'Jan 2026', text: 'Alpaca raises $150M Series D at $1.15B. Tokenization infrastructure momentum accelerates.' },
     { when: 'Feb 2026', text: 'TiiCKER ships TickerPerks for TradFi brokers, proving perks demand.' },
     { when: 'Mar 2026', text: 'Kraken Points launches as custodial-only "perks-adjacent" yield.' },
     { when: 'Apr 2026', text: 'Ondo + Broadridge ship tokenized voting on 250+ tokens, limited to Ondo.' },
