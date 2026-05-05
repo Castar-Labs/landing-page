@@ -10,13 +10,13 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   icons: { icon: '/logo3.svg', shortcut: '/logo3.svg', apple: '/logo3.svg' },
-  title: 'Castar — One Card. Infinite Worlds.',
+  title: 'Castar — Shareholder identity for tokenized stocks.',
   description:
-    'Turn your everyday spending into exclusive rewards, VIP access, and real-world impact for your favorite creators — without spending an extra dime.',
+    'One API to verify tokenized-stock ownership across every rail — Alpaca custody, xStocks tokens, on-chain wallets — and trigger programmable shareholder benefits.',
   openGraph: {
-    title: 'Castar — One Card. Infinite Worlds.',
+    title: 'Castar — Shareholder identity for tokenized stocks.',
     description:
-      'Support your favorite creators passively. Earn XP, unlock exclusive rewards, and fund their chosen charities—just by spending like normal.',
+      'The cross-rail verification + benefits layer for tokenized stocks. Plaid for shareholder identity. Live on INK with six xStock tokens supported.',
     type: 'website',
   },
 }

@@ -225,3 +225,45 @@ body {
     transform: rotateX(18deg);
   }
 }
+
+/* ============================================================
+   Ribbon hero — animated background "C" with pulsing node.
+   ============================================================ */
+
+@keyframes hero-orb-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(70px, -42px, 0) scale(1.06); }
+}
+
+@keyframes hero-orb-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-58px, 36px, 0) scale(0.96); }
+}
+
+@keyframes hero-orb-drift-c {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.35; }
+  50% { transform: translate3d(20px, 28px, 0); opacity: 0.6; }
+}
+
+.hero-orb-a { animation: hero-orb-drift-a 18s ease-in-out infinite; }
+.hero-orb-b { animation: hero-orb-drift-b 22s ease-in-out infinite; }
+.hero-orb-c { animation: hero-orb-drift-c 11s ease-in-out infinite; }
+
+@keyframes hero-noise-scan {
+  0%   { transform: translate3d(-3%, -3%, 0); }
+  100% { transform: translate3d(3%, 3%, 0); }
+}
+.hero-noise { animation: hero-noise-scan 10s ease-in-out infinite alternate; }
+
+@keyframes hero-cue-bob {
+  0%, 100% { transform: translate(-50%, 0); opacity: 0.45; }
+  50%      { transform: translate(-50%, 8px); opacity: 0.85; }
+}
+.hero-scroll-cue { animation: hero-cue-bob 2.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb-a, .hero-orb-b, .hero-orb-c,
+  .hero-noise, .hero-scroll-cue {
+    animation: none;
+  }
+}
