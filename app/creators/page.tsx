@@ -8,11 +8,11 @@ import {
   Brain,
   Leaf,
 } from '@phosphor-icons/react/dist/ssr'
-import Nav from './components/NavClient'
-import { SIGNAL_COUNT } from './signals/data'
-import CreatorForm from './components/CreatorFormClient'
-import FinalCTA from './components/FinalCTAClient'
-import HolographicHeroCard from './components/HolographicHeroCard'
+import Nav from '../components/NavClient'
+import { SIGNAL_COUNT } from '../signals/data'
+import CreatorForm from '../components/CreatorFormClient'
+import FinalCTA from '../components/FinalCTAClient'
+import HolographicHeroCard from '../components/HolographicHeroCard'
 
 function Hero() {
   return (
