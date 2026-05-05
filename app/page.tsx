@@ -216,7 +216,7 @@ function Stats() {
     { value: '100K+', label: 'Unique on-chain xStock holders', source: 'cryptotimes.io · Apr 2026' },
     { value: '100+', label: 'xStock tokens · target 500 by EOY', source: 'kraken.com/blog' },
     { value: '5', label: 'Chains: Solana · Ethereum · Mantle · TON · Ink', source: 'xstocks.com' },
-    { value: '$20B/yr', label: 'Kabunushi yutai precedent in Japan', source: 'shareholder perks proven loop' },
+    { value: '~30%', label: 'Japanese listed companies with shareholder-perk programs', source: 'J-STAGE systematic review' },
     { value: '$1.15B', label: 'Alpaca Series D valuation · Jan 2026', source: 'theblock.co' },
   ]
 
@@ -733,7 +733,7 @@ function Timeline() {
     { when: 'Dec 2025', text: 'Kraken acquires Backed. Alliance now Kraken-controlled.' },
     { when: 'Jan 2026', text: 'Alpaca raises $150M Series D at $1.15B. Tokenization infrastructure momentum accelerates.' },
     { when: 'Feb 2026', text: 'TiiCKER ships TickerPerks for TradFi brokers, proving perks demand.' },
-    { when: 'Mar 2026', text: 'Kraken Points launches as custodial-only "perks-adjacent" yield.' },
+    { when: 'Mar 2026', text: 'xStocks rewards split into two lanes: Kraken-held Opt-In Rewards and onchain xPoints activity.' },
     { when: 'Apr 2026', text: 'Ondo + Broadridge ship tokenized voting on 250+ tokens, limited to Ondo.' },
   ]
 
