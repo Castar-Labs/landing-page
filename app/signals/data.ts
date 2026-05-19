@@ -1,5 +1,5 @@
 export type SourceKind = 'corporate' | 'press' | 'social'
-export type Tag = 'stablecoins' | 'entertainment finance'
+export type Tag = 'stablecoins' | 'entertainment finance' | 'tokenized stocks'
 
 export type SignalEntry = {
   date: string
@@ -11,6 +11,14 @@ export type SignalEntry = {
 }
 
 export const entries: SignalEntry[] = [
+  {
+    date: '2026-05-18',
+    source: 'Reuters',
+    kind: 'press',
+    tag: 'tokenized stocks',
+    title: 'SEC Readies Plan for Trading Crypto Versions of Stocks — Bloomberg Reports US Tokenized Equity Framework',
+    href: 'https://www.reuters.com/legal/government/sec-readies-plan-trading-crypto-versions-stocks-bloomberg-news-reports-2026-05-18/',
+  },
   {
     date: '2026-04-29',
     source: 'Bridge on LinkedIn',

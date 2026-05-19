@@ -26,6 +26,11 @@ const tagStyles: Record<Tag, { label: string; classes: string; dot: string }> = 
     classes: 'text-violet-700 bg-violet-50 border-violet-200',
     dot: 'bg-violet-500',
   },
+  'tokenized stocks': {
+    label: 'Tokenized Stocks',
+    classes: 'text-amber-700 bg-amber-50 border-amber-200',
+    dot: 'bg-amber-500',
+  },
 }
 
 const sortedEntries = [...entries].sort(
