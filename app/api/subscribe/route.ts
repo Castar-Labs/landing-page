@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     body: JSON.stringify({ email, userGroup }),
   })
 
-  if (!res.ok) {
+  if (!res.ok && res.status !== 409) {
     const body = await res.json().catch(() => ({}))
     return NextResponse.json({ error: body.message ?? 'Submission failed' }, { status: res.status })
   }
